@@ -7,7 +7,6 @@
   "module": "dist/esm/index.js",
   "scripts": {
     "build": "rimraf dist && NODE_ENV=production BABEL_ENV=production rollup -c --bundleConfigAsCjs",
-    "prepare": "yarn build",
     "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx src --fix"
   },
   "files": [
