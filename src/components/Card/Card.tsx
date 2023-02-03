@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { isUndefined } from 'lodash';
 import React from 'react';
 
 import styles from './Card.module.css';
@@ -8,6 +9,7 @@ export interface ICardProps {
   className?: string;
   children: JSX.Element;
   hoverable: boolean;
+  onClick?: () => void;
 }
 
 export const Card: React.FC<ICardProps> = (props: ICardProps) => {
@@ -21,6 +23,8 @@ export const Card: React.FC<ICardProps> = (props: ICardProps) => {
             [styles.hoverable]: props.hoverable,
           }
         )}
+        onClick={props.onClick || undefined}
+        role={!isUndefined(props.onClick) ? 'button' : ''}
       >
         {props.children}
       </div>
