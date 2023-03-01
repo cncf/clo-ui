@@ -3,8 +3,8 @@ import isUndefined from 'lodash/isUndefined';
 import React, { MouseEvent, MutableRefObject, useEffect, useRef, useState } from 'react';
 import { MdClose } from 'react-icons/md';
 
-import useBodyScroll from '../../hooks/useBodyScroll';
-import useOutsideClick from '../../hooks/useOutsideClick';
+import { useBodyScroll } from '../../hooks/useBodyScroll';
+import { useOutsideClick } from '../../hooks/useOutsideClick';
 import styles from './Modal.module.css';
 
 export interface IModalProps {

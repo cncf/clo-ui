@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export default function useBodyScroll(blocked: boolean, elType: string, breakPoint?: string) {
+export const useBodyScroll = (blocked: boolean, elType: string, breakPoint?: string) => {
   const className = `noScroll-${elType}`;
   const bkClassName = breakPoint ? `noScroll-${breakPoint}` : '';
 
@@ -24,4 +24,4 @@ export default function useBodyScroll(blocked: boolean, elType: string, breakPoi
       }
     };
   }, [bkClassName, blocked, breakPoint, className]);
-}
+};

@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { isUndefined } from 'lodash';
 import React, { useEffect, useRef, useState } from 'react';
 
-import useOutsideClick from '../../hooks/useOutsideClick';
+import { useOutsideClick } from '../../hooks/useOutsideClick';
 import styles from './Dropdown.module.css';
 
 export interface IDropdownProps {

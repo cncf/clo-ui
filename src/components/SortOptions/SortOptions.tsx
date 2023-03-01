@@ -1,12 +1,13 @@
-import { isNull } from 'lodash';
+import { isNull, isUndefined } from 'lodash';
 import React, { ChangeEvent, useRef } from 'react';
 
 export interface ISortOptionsProps {
   width: number;
   options: any[];
   by: string;
+  direction?: string;
   className?: string;
-  onSortChange: (by: string) => void;
+  onSortChange: (value: string) => void;
 }
 
 export const SortOptions: React.FC<ISortOptionsProps> = (props: ISortOptionsProps) => {
@@ -30,12 +31,12 @@ export const SortOptions: React.FC<ISortOptionsProps> = (props: ISortOptionsProp
         ref={selectEl}
         className="form-select form-select-sm rounded-0 cursorPointer"
         style={{ width: `${props.width}px` }}
-        value={props.by}
+        value={`${props.by}${!isUndefined(props.direction) ? `_${props.direction}` : ''}`}
         onChange={handleChange}
         aria-label="Sort options select"
       >
         {props.options.map((opt: any) => (
-          <option key={`sort_${opt.label}`} value={opt.by}>
+          <option key={`sort_${opt.label}${!isUndefined(opt.direction) ? `_${opt.direction}` : ''}`} value={opt.by}>
             {opt.label}
           </option>
         ))}
