@@ -36,7 +36,10 @@ export const SortOptions: React.FC<ISortOptionsProps> = (props: ISortOptionsProp
         aria-label="Sort options select"
       >
         {props.options.map((opt: any) => (
-          <option key={`sort_${opt.label}${!isUndefined(opt.direction) ? `_${opt.direction}` : ''}`} value={opt.by}>
+          <option
+            key={`sort_${opt.label}`}
+            value={`${opt.by}${!isUndefined(opt.direction) ? `_${opt.direction}` : ''}`}
+          >
             {opt.label}
           </option>
         ))}
