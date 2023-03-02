@@ -1,0 +1,12 @@
+.badge {
+  background-color: var(--bs-white);
+  border-color: var(--clo-secondary);
+  font-size: 0.7rem;
+  padding: 0.2em 0.5em;
+  height: 19px;
+  line-height: 1.15;
+}
+
+.symbol {
+  margin-top: -2px;
+}

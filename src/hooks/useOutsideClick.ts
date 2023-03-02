@@ -1,11 +1,11 @@
 import { isNull } from 'lodash';
 import { RefObject, useCallback, useEffect, useState } from 'react';
 
-export default function useOutsideClick(
+export const useOutsideClick = (
   refs: RefObject<HTMLElement>[],
   enabled: boolean,
   onClickOutside: (e: MouseEvent) => void
-): [boolean] {
+): [boolean] => {
   const [isActive, setActive] = useState(false);
 
   const isOutside = useCallback(
@@ -39,4 +39,4 @@ export default function useOutsideClick(
   }, [refs, onClickOutside, onEvent]);
 
   return [isActive];
-}
+};

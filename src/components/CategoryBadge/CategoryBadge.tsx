@@ -8,7 +8,7 @@ export interface ICategoryBadgeProps {
   className?: string;
 }
 
-export const CartegoryBadge: React.FC<ICategoryBadgeProps> = (props: ICategoryBadgeProps) => {
+export const CategoryBadge: React.FC<ICategoryBadgeProps> = (props: ICategoryBadgeProps) => {
   return (
     <div
       data-testid="category-badge"
