@@ -1,6 +1,6 @@
 {
   "name": "clo-ui",
-  "version": "0.0.1",
+  "version": "0.1.2",
   "license": "Apache-2.0",
   "description": "CLO common library: components, utils and hooks",
   "main": "dist/cjs/index.js",
