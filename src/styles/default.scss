@@ -291,6 +291,16 @@ a,
   border-top-color: inherit;
 }
 
+// Tooltip
+.tooltip,
+.tooltip-arrow {
+  position: absolute !important;
+}
+
+.tooltip {
+  padding: 0.45rem 0 0 !important;
+}
+
 .tooltip.show {
   opacity: 0.97;
 }
