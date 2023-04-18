@@ -1,0 +1,13 @@
+.badge {
+  padding: 0;
+  padding-left: 0.35rem;
+  border: 1px solid transparent;
+}
+
+.content {
+  padding: 0.1rem 0;
+}
+
+.btn {
+  padding: 0.1rem 0.35rem;
+}
