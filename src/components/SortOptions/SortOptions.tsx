@@ -5,6 +5,7 @@ export interface ISortOptionsProps {
   width: number;
   options: any[];
   by: string;
+  label?: string;
   direction?: string;
   className?: string;
   onSortChange: (value: string) => void;
@@ -25,8 +26,8 @@ export const SortOptions: React.FC<ISortOptionsProps> = (props: ISortOptionsProp
   };
 
   return (
-    <div className={`d-flex flex-nowrap align-items-center me-2 me-md-4 ${props.className}`}>
-      <label className="form-label me-2 mb-0">Sort:</label>
+    <div className={`d-flex flex-nowrap align-items-center ${props.className}`}>
+      <label className="form-label me-2 mb-0">{props.label || 'Sort'}:</label>
       <select
         ref={selectEl}
         className="form-select form-select-sm rounded-0 cursorPointer"

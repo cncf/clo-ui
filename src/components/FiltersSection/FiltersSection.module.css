@@ -19,3 +19,7 @@ label {
 .searchWithClose input {
   max-width: calc(100% - 70px);
 }
+
+.subtitle {
+  font-size: 0.75rem;
+}

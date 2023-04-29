@@ -7,6 +7,8 @@ export { CategoryBadge, ICategoryBadgeProps } from './CategoryBadge/CategoryBadg
 export { CheckBox, ICheckboxProps } from './Checkbox/Checkbox';
 export { CheckSet, CheckSetBadge, ICheckSetBadgeProps } from './CheckSetBadge/CheckSetBadge';
 export { CodeBlock, ICodeBlockProps } from './CodeBlock/CodeBlock';
+export { DateRangeBtn, IDateRangeBtnProps } from './DateRangeFilter/DateRangeBtn';
+export { DateRangeFilter, DateRangeOpts, IDateRangeFilterProps } from './DateRangeFilter/DateRangeFilter';
 export { DotsLoading, IDotsLoadingProps } from './DotsLoading/DotsLoading';
 export { Dropdown, IDropdownProps } from './Dropdown/Dropdown';
 export { DropdownOnHover, IDropdownOnHoverProps } from './DropdownOnHover/DropdownOnHover';
@@ -24,6 +26,7 @@ export { Foundation, FoundationBadge, FOUNDATIONS, IFoundationBadgeProps } from 
 export { GenericBadge, IGenericBadgeProps } from './GenericBadge/GenericBadge';
 export { HoverableItem, IHoverableItemProps } from './HoverableItem/HoverableItem';
 export { IImageProps, Image } from './Image/Image';
+export { IInputFiltersSectionProps, InputFiltersSection } from './InputFiltersSection/InputFiltersSection';
 export { ILoadingProps, Loading } from './Loading/Loading';
 export { IMaturityBadgeProps, Maturity, MaturityBadge } from './MaturityBadge/MaturityBadge';
 export { IModalProps, Modal } from './Modal/Modal';
@@ -35,6 +38,7 @@ export { IRoundScoreProps, RoundScore } from './RoundScore/RoundScore';
 export { ISampleQueriesProps, SampleQueries, SampleQuery } from './SampleQueries/SampleQueries';
 export { ISearchbarProps, Searchbar } from './Searchbar/Searchbar';
 export { ISearchbarWithDropdownProps, SearchbarWithDropdown } from './SearchbarWithDropdown/SearchbarWithDropdown';
+export { ISelectedFilterBadgeProps, SelectedFilterBadge } from './SelectedFilterBadge/SelectedFilterBadge';
 export { ISidebarProps, Sidebar } from './Sidebar/Sidebar';
 export { ISortOptionsProps, SortOptions } from './SortOptions/SortOptions';
 export { ISubNavbarProps, SubNavbar } from './SubNavbar/SubNavbar';

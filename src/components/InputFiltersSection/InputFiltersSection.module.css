@@ -1,0 +1,37 @@
+.categoryTitle {
+  margin-top: 2rem;
+}
+
+.activeFilter {
+  font-size: 0.9rem;
+}
+
+.btnRemove {
+  margin-top: -2px;
+  font-size: 0.85rem;
+  display: none;
+}
+
+.icon {
+  border: 1px solid var(--color-black-25);
+  color: var(--bs-white);
+  height: 16px;
+  width: 16px;
+  font-size: 0.7rem;
+  background-color: var(--clo-green);
+  color: var(--bs-white);
+}
+
+[data-theme='dark'] :global(.input-group-append .btn) {
+  border: 1px solid var(--solid-border) !important;
+}
+
+@media (hover: hover) {
+  .activeFilter:hover .btnRemove {
+    text-decoration: underline;
+  }
+
+  .activeFilter:hover .btnRemove {
+    display: inline-block;
+  }
+}

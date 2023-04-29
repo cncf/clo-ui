@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { isNull } from 'lodash';
+import { isNull, isUndefined } from 'lodash';
 import React, { KeyboardEvent, useRef } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import { IoCloseSharp } from 'react-icons/io5';
@@ -15,6 +15,7 @@ export interface ISearchbarProps {
   bigSize: boolean;
   classNameWrapper?: string;
   classNameSearch?: string;
+  noButtons?: boolean;
 }
 
 export const Searchbar: React.FC<ISearchbarProps> = (props: ISearchbarProps) => {
@@ -64,33 +65,36 @@ export const Searchbar: React.FC<ISearchbarProps> = (props: ISearchbarProps) => 
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => props.onValueChange(e.target.value)}
         />
 
-        {props.value !== '' && (
+        {(isUndefined(props.noButtons) || !props.noButtons) && (
           <>
+            {props.value !== '' && (
+              <>
+                <button
+                  aria-label="Clear search"
+                  className={`btn btn-link lh-1 px-2 ${styles.btnIcon}`}
+                  onClick={() => {
+                    props.cleanSearchValue();
+                    forceFocus();
+                  }}
+                >
+                  <div className="text-muted lightIcon">
+                    <IoCloseSharp />
+                  </div>
+                </button>
+                <div className={`vr ${styles.vr}`} />
+              </>
+            )}
             <button
-              aria-label="Clear search"
+              aria-label="Search text"
               className={`btn btn-link lh-1 px-2 ${styles.btnIcon}`}
-              onClick={() => {
-                props.cleanSearchValue();
-                forceFocus();
-              }}
+              onClick={props.onSearch}
             >
-              <div className="text-muted lightIcon">
-                <IoCloseSharp />
+              <div className={`${styles.iconWrapper} lightIcon`}>
+                <FiSearch />
               </div>
             </button>
-            <div className={`vr ${styles.vr}`} />
           </>
         )}
-
-        <button
-          aria-label="Search text"
-          className={`btn btn-link lh-1 px-2 ${styles.btnIcon}`}
-          onClick={props.onSearch}
-        >
-          <div className={`${styles.iconWrapper} lightIcon`}>
-            <FiSearch />
-          </div>
-        </button>
       </div>
     </div>
   );

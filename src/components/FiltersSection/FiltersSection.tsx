@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import { isNull, isUndefined } from 'lodash';
+import { isArray, isNull, isUndefined } from 'lodash';
 import React, { ChangeEvent, forwardRef, Ref, useEffect, useImperativeHandle, useState } from 'react';
 
 import { CheckBox } from '../Checkbox/Checkbox';
@@ -8,8 +8,13 @@ import styles from './FiltersSection.module.css';
 
 export interface FilterSection {
   key?: string;
+  placeholder?: string;
   title: string;
-  options: FilterOption[];
+  options:
+    | FilterOption[]
+    | {
+        [key: string]: FilterOption[];
+      };
 }
 
 export interface FilterOption {
@@ -40,7 +45,9 @@ const SEARCH_DELAY = 3 * 100; // 300ms
 export const FiltersSection = forwardRef<RefFiltersSection, IFiltersSectionProps>(
   (props: IFiltersSectionProps, ref: Ref<RefFiltersSection>) => {
     const [value, setValue] = useState<string>('');
-    const [visibleOptions, setVisibleOptions] = useState<FilterOption[]>(props.section.options);
+    const [visibleOptions, setVisibleOptions] = useState<FilterOption[] | { [key: string]: FilterOption[] }>(
+      props.section.options
+    );
     const [searchTimeout, setSearchTimeout] = useState<NodeJS.Timeout | null>(null);
 
     useImperativeHandle(ref, () => ({
@@ -52,13 +59,30 @@ export const FiltersSection = forwardRef<RefFiltersSection, IFiltersSectionProps
     const filterOptions = () => {
       if (props.section.options) {
         if (value !== '') {
-          setVisibleOptions(
-            props.section.options.filter(
-              (f: FilterOption) =>
-                (f.value && f.value.toLowerCase().includes(value.toLowerCase())) ||
-                f.name.toLowerCase().includes(value.toLowerCase())
-            )
-          );
+          if (isArray(props.section.options)) {
+            setVisibleOptions(
+              props.section.options.filter(
+                (f: FilterOption) =>
+                  (f.value && f.value.toLowerCase().includes(value.toLowerCase())) ||
+                  f.name.toLowerCase().includes(value.toLowerCase())
+              )
+            );
+          } else {
+            let options: { [key: string]: FilterOption[] } = {};
+            Object.keys(props.section.options).forEach((group: string) => {
+              const optsToCkeck = (props.section.options as { [key: string]: FilterOption[] })[group];
+
+              const opts = optsToCkeck.filter(
+                (f: FilterOption) =>
+                  (f.value && f.value.toLowerCase().includes(value.toLowerCase())) ||
+                  f.name.toLowerCase().includes(value.toLowerCase())
+              );
+              if (opts.length > 0) {
+                options[group] = opts;
+              }
+            });
+            setVisibleOptions(options);
+          }
         } else {
           setVisibleOptions(props.section.options);
         }
@@ -111,26 +135,62 @@ export const FiltersSection = forwardRef<RefFiltersSection, IFiltersSectionProps
         )}
 
         <div className={classnames(props.contentClassName, { 'mt-2': props.visibleTitle })}>
-          {visibleOptions.map((filter: FilterOption) => {
-            return (
-              <CheckBox
-                key={`filter_${filter.key || filter.value}`}
-                name={(filter.key || props.section.key)!}
-                value={(filter.key || filter.value)!}
-                labelClassName="mw-100"
-                legend={filter.legend}
-                label={filter.name}
-                icon={<span className={`position-relative ${styles.decorator}`}>{filter.decorator}</span>}
-                device={props.device}
-                checked={
-                  !isUndefined(props.activeFilters) && props.activeFilters.includes((filter.key || filter.value)!)
-                }
-                onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                  props.onChange(e.target.name, e.target.value, e.target.checked, filter.type)
-                }
-              />
-            );
-          })}
+          {isArray(visibleOptions) ? (
+            <>
+              {visibleOptions.map((filter: FilterOption) => {
+                return (
+                  <CheckBox
+                    key={`filter_${filter.key || filter.value}`}
+                    name={(filter.key || props.section.key)!}
+                    value={(filter.key || filter.value)!}
+                    labelClassName="mw-100"
+                    legend={filter.legend}
+                    label={filter.name}
+                    icon={<span className={`position-relative ${styles.decorator}`}>{filter.decorator}</span>}
+                    device={props.device}
+                    checked={
+                      !isUndefined(props.activeFilters) && props.activeFilters.includes((filter.key || filter.value)!)
+                    }
+                    onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                      props.onChange(e.target.name, e.target.value, e.target.checked, filter.type)
+                    }
+                  />
+                );
+              })}
+            </>
+          ) : (
+            <>
+              {Object.keys(visibleOptions).map((group: string, index: number) => {
+                if (visibleOptions[group].length === 0) return null;
+                return (
+                  <React.Fragment key={group}>
+                    <div className={`text-uppercase text-muted fw-bold mb-2 mt-4 ${styles.subtitle}`}>{group}</div>
+                    {visibleOptions[group].map((filter: FilterOption) => {
+                      return (
+                        <CheckBox
+                          key={`filter_${filter.key || filter.value}`}
+                          name={(filter.key || props.section.key)!}
+                          value={(filter.key || filter.value)!}
+                          labelClassName="mw-100"
+                          legend={filter.legend}
+                          label={filter.name}
+                          icon={<span className={`position-relative ${styles.decorator}`}>{filter.decorator}</span>}
+                          device={props.device}
+                          checked={
+                            !isUndefined(props.activeFilters) &&
+                            props.activeFilters.includes((filter.key || filter.value)!)
+                          }
+                          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                            props.onChange(e.target.name, e.target.value, e.target.checked, filter.type)
+                          }
+                        />
+                      );
+                    })}
+                  </React.Fragment>
+                );
+              })}
+            </>
+          )}
         </div>
       </>
     );
