@@ -54,12 +54,12 @@
 
   .tooltipDropdown {
     background-color: var(--bg-color) !important;
-    border: 1px solid var(--color-font) !important;
+    border: 1px solid var(--solid-border) !important;
     color: var(--color-font) !important;
   }
 
   .tooltipDropdown .arrow:before {
-    border-bottom-color: var(--color-font) !important;
+    border-bottom-color: var(--solid-border) !important;
   }
 
   .alert-warning {

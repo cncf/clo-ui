@@ -23,6 +23,7 @@ export {
 } from './FiltersSection/FiltersSection';
 export { Footer, IFooterProps } from './Footer/Footer';
 export { Foundation, FoundationBadge, FOUNDATIONS, IFoundationBadgeProps } from './FoundationBadge/FoundationBadge';
+export { FullScreenModal, IFullScreenModalProps } from './FullScreenModal/FullScreenModal';
 export { GenericBadge, IGenericBadgeProps } from './GenericBadge/GenericBadge';
 export { HoverableItem, IHoverableItemProps } from './HoverableItem/HoverableItem';
 export { IImageProps, Image } from './Image/Image';
