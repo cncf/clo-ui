@@ -1,14 +1,17 @@
+import { isNull, isUndefined } from 'lodash';
 import React from 'react';
 import { MdCategory } from 'react-icons/md';
 
 import styles from './CategoryBadge.module.css';
 
 export interface ICategoryBadgeProps {
-  category: string;
+  category?: string | null;
   className?: string;
 }
 
 export const CategoryBadge: React.FC<ICategoryBadgeProps> = (props: ICategoryBadgeProps) => {
+  if (isUndefined(props.category) || isNull(props.category)) return null;
+
   return (
     <div
       data-testid="category-badge"

@@ -1,4 +1,4 @@
-import { isUndefined } from 'lodash';
+import { isNull, isUndefined } from 'lodash';
 import React from 'react';
 import { GiStairsGoal } from 'react-icons/gi';
 
@@ -11,13 +11,15 @@ export enum Maturity {
 }
 
 export interface IMaturityBadgeProps {
-  maturityLevel: Maturity;
+  maturityLevel?: Maturity | null;
   className?: string;
   onClick?: () => void;
 }
 
 export const MaturityBadge: React.FC<IMaturityBadgeProps> = (props: IMaturityBadgeProps) => {
-  const levelData = Maturity[props.maturityLevel];
+  if (isUndefined(props.maturityLevel) || isNull(props.maturityLevel)) return null;
+
+  const levelData = Maturity[props.maturityLevel!];
 
   return (
     <>
