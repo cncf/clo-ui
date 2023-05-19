@@ -1,4 +1,4 @@
-import { isUndefined } from 'lodash';
+import { isNull, isUndefined } from 'lodash';
 import React from 'react';
 
 import styles from './FoundationBadge.module.css';
@@ -18,12 +18,14 @@ export const FOUNDATIONS = {
 };
 
 export interface IFoundationBadgeProps {
-  foundation: Foundation;
+  foundation?: Foundation | null;
   className?: string;
   onClick?: () => void;
 }
 
 export const FoundationBadge: React.FC<IFoundationBadgeProps> = (props: IFoundationBadgeProps) => {
+  if (isUndefined(props.foundation) || isNull(props.foundation)) return null;
+
   const foundationData = FOUNDATIONS[props.foundation];
 
   return (
