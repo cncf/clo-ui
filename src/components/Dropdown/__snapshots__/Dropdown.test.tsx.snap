@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown creates snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="position-relative"
+  >
+    <button
+      aria-expanded="false"
+      aria-label="Label button"
+      class="btn btn-md btn-link text-white rounded-0 lh-1 btn undefined"
+      type="button"
+    >
+      Button content
+    </button>
+    <div
+      class="dropdown-menu rounded-0 dropdown"
+      role="menu"
+    >
+      <div
+        class="dropdown-arrow arrow"
+      />
+      Dropdown content
+    </div>
+  </div>
+</DocumentFragment>
+`;

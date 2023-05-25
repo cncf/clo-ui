@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card creates snapshot 1`] = `
+<DocumentFragment>
+  <div
+    role="listitem"
+  >
+    <div
+      class="card rounded-0 p-0 h-100 mw-100 d-flex text-reset text-decoration-none"
+      role=""
+    >
+      card content
+    </div>
+  </div>
+</DocumentFragment>
+`;
