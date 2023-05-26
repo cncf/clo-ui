@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FiltersSection creates snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class=""
+  >
+    <div
+      class="form-check me-sm-2 mb-2 undefined"
+    >
+      <input
+        aria-checked="false"
+        class="form-check-input rounded-0 checkbox"
+        id="desktop-foundation-cncf"
+        name="foundation"
+        tabindex="0"
+        type="checkbox"
+        value="cncf"
+      />
+      <label
+        class="form-check-label mw-100"
+        data-testid="checkboxLabel"
+        for="desktop-foundation-cncf"
+      >
+        <div
+          class="d-flex align-items-baseline mw-100"
+        >
+          <span
+            class="position-relative decorator"
+          />
+          <span
+            class="text-truncate"
+          >
+            CNCF
+          </span>
+        </div>
+      </label>
+    </div>
+    <div
+      class="form-check me-sm-2 mb-2 undefined"
+    >
+      <input
+        aria-checked="false"
+        class="form-check-input rounded-0 checkbox"
+        id="desktop-foundation-lfaidata"
+        name="foundation"
+        tabindex="0"
+        type="checkbox"
+        value="lfaidata"
+      />
+      <label
+        class="form-check-label mw-100"
+        data-testid="checkboxLabel"
+        for="desktop-foundation-lfaidata"
+      >
+        <div
+          class="d-flex align-items-baseline mw-100"
+        >
+          <span
+            class="position-relative decorator"
+          />
+          <span
+            class="text-truncate"
+          >
+            LF AI & Data
+          </span>
+        </div>
+      </label>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DotsLoading creates snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="d-flex flex-row undefined"
+    role="status"
+  >
+    <div
+      class="dot dot1 dot"
+    />
+    <div
+      class="dot dot2 dot"
+    />
+    <div
+      class="dot dot3 dot"
+    />
+  </div>
+</DocumentFragment>
+`;

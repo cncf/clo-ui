@@ -16,7 +16,7 @@
     "allowJs": true,
     "skipLibCheck": true,
     "sourceMap": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "strict": true,
     "noEmit": true,
     "forceConsistentCasingInFileNames": true,

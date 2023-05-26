@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer creates snapshot 1`] = `
+<DocumentFragment>
+  <footer
+    class="py-5 footer undefined"
+  >
+    <div
+      class="container-lg"
+    >
+      <div
+        class="d-flex flex-row flex-wrap align-items-stretch justify-content-between text-light"
+      >
+        <span>
+          Content
+        </span>
+        <div
+          class="ms-0 ms-lg-auto fullMobileSection"
+        >
+          Logo
+        </div>
+      </div>
+    </div>
+  </footer>
+</DocumentFragment>
+`;

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckSetBadge creates snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="d-inline-flex undefined"
+  >
+    <div
+      class="badge text-secondary border border-secondary rounded-0 position-relative text-uppercase badge"
+      data-testid="checkset-badge"
+    >
+      <div
+        class="d-flex flex-row align-items-center"
+      >
+        code
+        <div
+          class="px-1 position-relative symbol"
+        >
+          +
+        </div>
+        community
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

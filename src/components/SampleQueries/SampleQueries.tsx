@@ -3,6 +3,7 @@ import React, { Fragment } from 'react';
 
 export interface ISampleQueriesProps {
   queries: SampleQuery[];
+  path?: string;
   className?: string;
   lineBreakIn?: number;
   prepareQueryString: (items: any) => string;
@@ -23,7 +24,7 @@ export const SampleQueries = React.memo(function SampleQueries(props: ISampleQue
         <Fragment key={`sampleQuery_${index}`}>
           <a
             className={`badge rounded-0 border fw-normal mx-2 mt-3 text-decoration-none ${props.className}`}
-            href={`/search${props.prepareQueryString(query.filters)}`}
+            href={`/${props.path || 'search'}${props.prepareQueryString(query.filters)}`}
             target="_self"
             rel="noopener noreferrer"
             aria-label={`Filter by ${query.name}`}

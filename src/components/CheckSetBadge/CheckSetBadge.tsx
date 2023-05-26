@@ -18,7 +18,7 @@ export const CheckSetBadge = (props: ICheckSetBadgeProps) => {
   return (
     <div className={`d-inline-flex ${props.className}`}>
       <div
-        data-testid="repo-kind-badge"
+        data-testid="checkset-badge"
         className={`badge text-secondary border border-secondary rounded-0 position-relative text-uppercase ${styles.badge}`}
       >
         <div className="d-flex flex-row align-items-center">
