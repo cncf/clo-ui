@@ -291,6 +291,11 @@ a,
   border-top-color: inherit;
 }
 
+.table > :not(caption) > * > * {
+  background-color: transparent;
+  color: inherit;
+}
+
 // Tooltip
 .tooltip,
 .tooltip-arrow {
@@ -320,8 +325,6 @@ a,
 .cursorDefault:not([disabled]) {
   cursor: default;
 }
-
-// Scroll
 
 .noScroll-sidebar,
 .noScroll-modal {
