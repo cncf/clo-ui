@@ -4,11 +4,15 @@ import React from 'react';
 import styles from './FoundationBadge.module.css';
 
 export enum Foundation {
+  cdf = 'cdf',
   cncf = 'cncf',
   lfaidata = 'lfaidata',
 }
 
 export const FOUNDATIONS = {
+  [Foundation.cdf]: {
+    name: 'CDF',
+  },
   [Foundation.cncf]: {
     name: 'CNCF',
   },
