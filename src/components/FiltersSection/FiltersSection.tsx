@@ -37,6 +37,7 @@ export interface IFiltersSectionProps {
   device: string;
   activeFilters?: string[];
   withSearchBar?: boolean;
+  disabled?: boolean;
   onChange: (name: string, value: string, checked: boolean, type?: string) => void;
 }
 
@@ -130,6 +131,7 @@ export const FiltersSection = forwardRef<RefFiltersSection, IFiltersSectionProps
               classNameSearch={classnames(styles.search, { [styles.searchWithClose]: value !== '' })}
               placeholder={`Search ${props.section.key || ''}`}
               bigSize={false}
+              disabled={props.disabled}
             />
           </div>
         )}
@@ -155,13 +157,14 @@ export const FiltersSection = forwardRef<RefFiltersSection, IFiltersSectionProps
                     onChange={(e: ChangeEvent<HTMLInputElement>) =>
                       props.onChange(e.target.name, e.target.value, e.target.checked, filter.type)
                     }
+                    disabled={props.disabled}
                   />
                 );
               })}
             </>
           ) : (
             <>
-              {Object.keys(visibleOptions).map((group: string, index: number) => {
+              {Object.keys(visibleOptions).map((group: string) => {
                 if (visibleOptions[group].length === 0) return null;
                 return (
                   <React.Fragment key={group}>
@@ -185,6 +188,7 @@ export const FiltersSection = forwardRef<RefFiltersSection, IFiltersSectionProps
                           onChange={(e: ChangeEvent<HTMLInputElement>) =>
                             props.onChange(e.target.name, e.target.value, e.target.checked, filter.type)
                           }
+                          disabled={props.disabled}
                         />
                       );
                     })}

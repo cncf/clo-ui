@@ -1,12 +1,13 @@
 import { isNull, isUndefined } from 'lodash';
 import React from 'react';
-import { MdCategory } from 'react-icons/md';
 
+import { cutString } from '../../utils';
 import styles from './CategoryBadge.module.css';
 
 export interface ICategoryBadgeProps {
   category?: string | null;
   className?: string;
+  maxLength?: number;
 }
 
 export const CategoryBadge: React.FC<ICategoryBadgeProps> = (props: ICategoryBadgeProps) => {
@@ -18,8 +19,7 @@ export const CategoryBadge: React.FC<ICategoryBadgeProps> = (props: ICategoryBad
       className={`badge text-dark lighterText rounded-0 position-relative ${styles.badge} ${props.className}`}
     >
       <div className="d-flex flex-row align-items-center text-capitalize">
-        <MdCategory className="me-2" />
-        {props.category}
+        {!isUndefined(props.maxLength) ? cutString(props.category, props.maxLength) : props.category}
       </div>
     </div>
   );
