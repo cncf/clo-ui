@@ -138,6 +138,7 @@ export const FiltersSection = forwardRef<RefFiltersSection, IFiltersSectionProps
           {isArray(visibleOptions) ? (
             <>
               {visibleOptions.map((filter: FilterOption) => {
+                if (isNull(filter.name)) return null;
                 return (
                   <CheckBox
                     key={`filter_${filter.key || filter.value}`}
@@ -166,6 +167,7 @@ export const FiltersSection = forwardRef<RefFiltersSection, IFiltersSectionProps
                   <React.Fragment key={group}>
                     <div className={`text-uppercase text-muted fw-bold mb-2 mt-4 ${styles.subtitle}`}>{group}</div>
                     {visibleOptions[group].map((filter: FilterOption) => {
+                      if (isNull(filter.name)) return null;
                       return (
                         <CheckBox
                           key={`filter_${filter.key || filter.value}`}

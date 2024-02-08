@@ -1,15 +1,22 @@
 import { isNull, isUndefined } from 'lodash';
 import React from 'react';
 
+import { cutString } from '../../utils';
 import styles from './FoundationBadge.module.css';
 
 export enum Foundation {
+  aswf = 'aswf',
   cdf = 'cdf',
   cncf = 'cncf',
   lfaidata = 'lfaidata',
+  lfenergy = 'lfenergy',
+  openmainframeproject = 'openmainframeproject',
 }
 
 export const FOUNDATIONS = {
+  [Foundation.aswf]: {
+    name: 'ASWF',
+  },
   [Foundation.cdf]: {
     name: 'CDF',
   },
@@ -19,11 +26,18 @@ export const FOUNDATIONS = {
   [Foundation.lfaidata]: {
     name: 'LF AI & Data',
   },
+  [Foundation.lfenergy]: {
+    name: 'LF Energy',
+  },
+  [Foundation.openmainframeproject]: {
+    name: 'OMP',
+  },
 };
 
 export interface IFoundationBadgeProps {
   foundation?: Foundation | null;
   className?: string;
+  maxLength?: number;
   onClick?: () => void;
 }
 
@@ -31,6 +45,7 @@ export const FoundationBadge: React.FC<IFoundationBadgeProps> = (props: IFoundat
   if (isUndefined(props.foundation) || isNull(props.foundation)) return null;
 
   const foundationData = FOUNDATIONS[props.foundation];
+  const foundationName = !isUndefined(foundationData) ? foundationData.name : props.foundation;
 
   return (
     <>
@@ -39,7 +54,9 @@ export const FoundationBadge: React.FC<IFoundationBadgeProps> = (props: IFoundat
           data-testid="foundation-badge"
           className={`badge text-light extraLightText rounded-0 position-relative ${styles.badge} ${props.className}`}
         >
-          <div className="d-flex flex-row align-items-center text-uppercase">{foundationData.name}</div>
+          <div className="d-flex flex-row align-items-center text-uppercase">
+            {!isUndefined(props.maxLength) ? cutString(foundationName, props.maxLength) : foundationName}
+          </div>
         </div>
       ) : (
         <button
@@ -48,7 +65,9 @@ export const FoundationBadge: React.FC<IFoundationBadgeProps> = (props: IFoundat
           className={`badge text-light extraLightText rounded-0 position-relative ${styles.badge} ${props.className}`}
           onClick={props.onClick}
         >
-          <div className="d-flex flex-row align-items-center text-uppercase">{foundationData.name}</div>
+          <div className="d-flex flex-row align-items-center text-uppercase">
+            {!isUndefined(props.maxLength) ? cutString(foundationName, props.maxLength) : foundationName}
+          </div>
         </button>
       )}
     </>

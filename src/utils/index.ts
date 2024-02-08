@@ -1,4 +1,5 @@
 import { capitalizeFirstLetter } from './capitalizeFirstLetter';
+import { cutString } from './cutString';
 import { detectActiveThemeMode } from './detectActiveThemeMode';
 import { getAnchorValue } from './getAnchorValue';
 import { getCategoryColor } from './getCategoryColor';
@@ -10,6 +11,7 @@ import { scrollToTop } from './scrollToTop';
 
 export {
   capitalizeFirstLetter,
+  cutString,
   detectActiveThemeMode,
   getAnchorValue,
   getCategoryColor,
