@@ -16,6 +16,7 @@ export interface ISearchbarProps {
   classNameWrapper?: string;
   classNameSearch?: string;
   noButtons?: boolean;
+  disabled?: boolean;
 }
 
 export const Searchbar: React.FC<ISearchbarProps> = (props: ISearchbarProps) => {
@@ -63,6 +64,7 @@ export const Searchbar: React.FC<ISearchbarProps> = (props: ISearchbarProps) => 
           placeholder={props.placeholder}
           onKeyDown={onKeyDown}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => props.onValueChange(e.target.value)}
+          disabled={props.disabled}
         />
 
         {(isUndefined(props.noButtons) || !props.noButtons) && (

@@ -12,6 +12,7 @@ export interface IDropdownProps {
   btnClassName?: string;
   dropdownClassName?: string;
   onClose?: () => void;
+  disabled?: boolean;
 }
 
 export const Dropdown: React.FC<IDropdownProps> = (props: IDropdownProps) => {
@@ -37,6 +38,7 @@ export const Dropdown: React.FC<IDropdownProps> = (props: IDropdownProps) => {
         onClick={() => setVisibleDropdown(!visibleDropdown)}
         aria-label={`${props.label} button`}
         aria-expanded={visibleDropdown}
+        disabled={props.disabled}
       >
         {props.btnContent}
       </button>
