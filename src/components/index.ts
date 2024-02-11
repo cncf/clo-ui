@@ -29,7 +29,7 @@ export { HoverableItem, IHoverableItemProps } from './HoverableItem/HoverableIte
 export { IImageProps, Image } from './Image/Image';
 export { IInputFiltersSectionProps, InputFiltersSection } from './InputFiltersSection/InputFiltersSection';
 export { ILoadingProps, Loading } from './Loading/Loading';
-export { IMaturityBadgeProps, Maturity, MaturityBadge } from './MaturityBadge/MaturityBadge';
+export { IMaturityBadgeProps, Maturity, MaturityBadge, MaturityLabel } from './MaturityBadge/MaturityBadge';
 export { IModalProps, Modal } from './Modal/Modal';
 export { INavbarProps, Navbar } from './Navbar/Navbar';
 export { INoDataProps, NoData } from './NoData/NoData';
