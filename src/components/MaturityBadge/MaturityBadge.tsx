@@ -12,11 +12,12 @@ export enum Maturity {
   graduated = 'graduated',
   incubating = 'incubating',
   incubation = 'incubation',
+  lfn = 'lfn',
   sandbox = 'sandbox',
   'working-group' = 'working-group',
 }
 
-const MaturityLabel = {
+export const MaturityLabel = {
   [Maturity.active]: 'Active',
   [Maturity.adopted]: 'Adopted',
   [Maturity.earlyadoption]: 'Early adoption',
@@ -24,6 +25,7 @@ const MaturityLabel = {
   [Maturity.graduated]: 'Graduated',
   [Maturity.incubating]: 'Incubating',
   [Maturity.incubation]: 'Incubation',
+  [Maturity.lfn]: 'LFN',
   [Maturity.sandbox]: 'Sandbox',
   [Maturity['working-group']]: 'Working group',
 };

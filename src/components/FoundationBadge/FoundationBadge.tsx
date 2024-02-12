@@ -10,6 +10,7 @@ export enum Foundation {
   cncf = 'cncf',
   lfaidata = 'lfaidata',
   lfenergy = 'lfenergy',
+  lfnetworking = 'lfnetworking',
   openmainframeproject = 'openmainframeproject',
 }
 
@@ -28,6 +29,9 @@ export const FOUNDATIONS = {
   },
   [Foundation.lfenergy]: {
     name: 'LF Energy',
+  },
+  [Foundation.lfnetworking]: {
+    name: 'LF Networking',
   },
   [Foundation.openmainframeproject]: {
     name: 'OMP',
