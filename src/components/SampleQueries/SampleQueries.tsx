@@ -6,13 +6,13 @@ export interface ISampleQueriesProps {
   path?: string;
   className?: string;
   lineBreakIn?: number;
-  prepareQueryString: (items: any) => string;
+  prepareQueryString: (items: any) => string; // eslint-disable-line @typescript-eslint/no-explicit-any
   maxQueriesNumber: number;
 }
 
 export interface SampleQuery {
   name: string;
-  filters: any;
+  filters: any; // eslint-disable-line @typescript-eslint/no-explicit-any
 }
 
 export const SampleQueries = React.memo(function SampleQueries(props: ISampleQueriesProps) {

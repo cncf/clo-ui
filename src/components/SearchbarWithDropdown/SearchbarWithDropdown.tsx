@@ -6,7 +6,7 @@ import { IoCloseSharp } from 'react-icons/io5';
 
 import { useBreakpointDetect } from '../../hooks/useBreakpointDetect';
 import { useOutsideClick } from '../../hooks/useOutsideClick';
-import { FoundationBadge } from '../FoundationBadge/FoundationBadge';
+import { Foundation, FoundationBadge } from '../FoundationBadge/FoundationBadge';
 import { HoverableItem } from '../HoverableItem/HoverableItem';
 import { Image } from '../Image/Image';
 import { RoundScore } from '../RoundScore/RoundScore';
@@ -14,11 +14,23 @@ import styles from './SearchbarWithDropdown.module.css';
 
 export interface ISearchbarWithDropdownProps {
   effective_theme: string;
-  searchProjects: (text: string) => Promise<{ items: any[]; 'Pagination-Total-Count': string }>;
+  searchProjects: (text: string) => Promise<{ items: Project[]; 'Pagination-Total-Count': string }>;
   onCleanSearchValue: () => void;
   onSearch: (value: string) => void;
   openProject: (foundation: string, projectName: string) => void;
   searchParams: URLSearchParams;
+}
+
+interface Project {
+  id: string;
+  name: string;
+  display_name: string;
+  logo_url: string;
+  logo_dark_url: string;
+  foundation: Foundation | null | undefined;
+  score: {
+    global: number;
+  };
 }
 
 const SEARCH_DELAY = 3 * 100; // 300ms
@@ -29,7 +41,7 @@ export const SearchbarWithDropdown = (props: ISearchbarWithDropdownProps) => {
   const dropdownRef = useRef(null);
   const [value, setValue] = useState<string>('');
   const [currentSearch, setCurrentSearch] = useState<string | null>(null);
-  const [projects, setProjects] = useState<any[] | null>(null);
+  const [projects, setProjects] = useState<Project[] | null>(null);
   const [totalProjectsNumber, setTotalProjectsNumber] = useState<number | null>(null);
   const [visibleDropdown, setVisibleDropdown] = useState<boolean>(false);
   const [highlightedItem, setHighlightedItem] = useState<number | null>(null);
@@ -71,11 +83,11 @@ export const SearchbarWithDropdown = (props: ISearchbarWithDropdownProps) => {
     }
   };
 
-  const goToProject = (selectedProject: any) => {
+  const goToProject = (selectedProject: Project) => {
     forceBlur();
     setValue('');
     cleanProjectsSearch();
-    props.openProject(selectedProject.foundation, selectedProject.name);
+    props.openProject(selectedProject.foundation as string, selectedProject.name);
   };
 
   const forceBlur = (): void => {
@@ -157,7 +169,7 @@ export const SearchbarWithDropdown = (props: ISearchbarWithDropdownProps) => {
       } else {
         cleanProjectsSearch();
       }
-    } catch (err: any) {
+    } catch {
       cleanProjectsSearch();
     }
   }
@@ -190,7 +202,7 @@ export const SearchbarWithDropdown = (props: ISearchbarWithDropdownProps) => {
         clearTimeout(dropdownTimeout);
       }
     };
-  }, [value]); /* eslint-disable-line react-hooks/exhaustive-deps */
+  }, [value]);
 
   return (
     <>
@@ -243,7 +255,7 @@ export const SearchbarWithDropdown = (props: ISearchbarWithDropdownProps) => {
         >
           <HoverableItem onLeave={() => setHighlightedItem(null)}>
             <>
-              {projects.map((project: any, index: number) => {
+              {projects.map((project: Project, index: number) => {
                 return (
                   <HoverableItem
                     key={`pkg_${project.id}`}

@@ -39,7 +39,7 @@ describe('ButtonCopyToClipboard', () => {
   });
 
   it('renders tooltip after clicking button when navidator.clipboard is undefined', async () => {
-    (navigator as any).clipboard = null;
+    (navigator as any).clipboard = null; // eslint-disable-line @typescript-eslint/no-explicit-any
     render(<ButtonCopyToClipboard text="Text to copy" />);
     expect(screen.queryByRole('tooltip')).toBeNull();
 

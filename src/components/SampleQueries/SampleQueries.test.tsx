@@ -33,17 +33,17 @@ const defaultProps = {
 };
 
 jest.mock('lodash', () => ({
-  ...(jest.requireActual('lodash') as {}),
+  ...(jest.requireActual('lodash') as unknown as object),
   sampleSize: () => {
     return mockQueries;
   },
 }));
 
 describe('SampleQueries', () => {
-  let assignMock = jest.fn();
+  const assignMock = jest.fn();
 
-  delete (window as any).location;
-  window.location = { assign: assignMock as any } as Location;
+  delete (window as any).location; // eslint-disable-line @typescript-eslint/no-explicit-any
+  window.location = { assign: assignMock as any } as Location; // eslint-disable-line @typescript-eslint/no-explicit-any
 
   afterEach(() => {
     assignMock.mockClear();

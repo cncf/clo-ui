@@ -69,7 +69,7 @@ export const FiltersSection = forwardRef<RefFiltersSection, IFiltersSectionProps
               )
             );
           } else {
-            let options: { [key: string]: FilterOption[] } = {};
+            const options: { [key: string]: FilterOption[] } = {};
             Object.keys(props.section.options).forEach((group: string) => {
               const optsToCkeck = (props.section.options as { [key: string]: FilterOption[] })[group];
 
@@ -103,7 +103,7 @@ export const FiltersSection = forwardRef<RefFiltersSection, IFiltersSectionProps
           filterOptions();
         }, SEARCH_DELAY)
       );
-    }, [value]); /* eslint-disable-line react-hooks/exhaustive-deps */
+    }, [value]);
 
     useEffect(() => {
       return () => {
@@ -111,7 +111,7 @@ export const FiltersSection = forwardRef<RefFiltersSection, IFiltersSectionProps
           clearTimeout(searchTimeout);
         }
       };
-    }, []); /* eslint-disable-line react-hooks/exhaustive-deps */
+    }, []);
 
     return (
       <>

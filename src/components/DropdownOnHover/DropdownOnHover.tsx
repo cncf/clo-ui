@@ -44,7 +44,7 @@ export const DropdownOnHover = (props: IDropdownOnHoverProps) => {
         clearTimeout(timeout);
       }
     };
-  }, [onLinkHover, onDropdownHover, openStatus]); /* eslint-disable-line react-hooks/exhaustive-deps */
+  }, [onLinkHover, onDropdownHover, openStatus]);
 
   return (
     <>
