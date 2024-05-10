@@ -74,7 +74,7 @@ export const ElementWithTooltip = (props: IElementWithTooltipProps) => {
         clearTimeout(timeout);
       }
     };
-  }, [onLabelHover, visibleTooltipStatus, tooltipWidth]); /* eslint-disable-line react-hooks/exhaustive-deps */
+  }, [onLabelHover, visibleTooltipStatus, tooltipWidth]);
 
   useLayoutEffect(() => {
     if (wrapper && wrapper.current) {

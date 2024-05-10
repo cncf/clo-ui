@@ -63,10 +63,10 @@ export const DateRangeFilter = (props: IDateRangeFilterProps) => {
   useEffect(() => {
     setDateFrom(props.from || props.initialDate);
     setDateTo(props.to || END_DATE);
-  }, [props.from, props.to]); /* eslint-disable-line react-hooks/exhaustive-deps */
+  }, [props.from, props.to]);
 
   useEffect(() => {
-    let times: DateRangeOpts = {};
+    const times: DateRangeOpts = {};
     if (dateTo !== END_DATE) {
       times[DateRange.To] = dateTo;
     }
@@ -74,7 +74,7 @@ export const DateRangeFilter = (props: IDateRangeFilterProps) => {
       times[DateRange.From] = dateFrom;
     }
     updateRange(times);
-  }, [dateTo, dateFrom]); /* eslint-disable-line react-hooks/exhaustive-deps */
+  }, [dateTo, dateFrom]);
 
   return (
     <>

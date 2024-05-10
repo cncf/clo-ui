@@ -13,7 +13,7 @@ export interface ICodeBlockProps {
   withCopyBtn: boolean;
   label?: string;
   darkCode?: boolean;
-  style?: any;
+  style?: { [key: string]: string | number };
   effective_theme: string;
 }
 

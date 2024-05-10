@@ -35,7 +35,7 @@ export const Timeline = (props: ITimelineProps) => {
       setDates(groupDatesByYearAndMonth(allDates));
     };
     formatDates();
-  }, [props.snapshots]); /* eslint-disable-line react-hooks/exhaustive-deps */
+  }, [props.snapshots]);
 
   if (isUndefined(dates) || availablaSnapshots.length < MIN_NUMBER_SNAPSHOTS) return null;
 

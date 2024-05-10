@@ -28,7 +28,7 @@ export const Dropdown: React.FC<IDropdownProps> = (props: IDropdownProps) => {
     if (!visibleDropdown && !isUndefined(props.onClose)) {
       props.onClose();
     }
-  }, [visibleDropdown]); /* eslint-disable-line react-hooks/exhaustive-deps */
+  }, [visibleDropdown]);
 
   return (
     <div ref={ref} className="position-relative">

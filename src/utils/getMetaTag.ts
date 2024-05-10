@@ -1,4 +1,4 @@
-export const getMetaTag = (name: string, isTrue?: boolean): any => {
+export const getMetaTag = (name: string, isTrue?: boolean): string | boolean | null => {
   const value = document.querySelector(`meta[name='clo:${name}']`)
     ? document.querySelector(`meta[name='clo:${name}']`)!.getAttribute('content')
     : null;

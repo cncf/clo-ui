@@ -50,7 +50,7 @@ export const FullScreenModal = (props: IFullScreenModalProps) => {
     return () => {
       window.removeEventListener('keydown', handleEsc);
     };
-  }, []); /* eslint-disable-line react-hooks/exhaustive-deps */
+  }, []);
 
   if (!openStatus) return null;
 

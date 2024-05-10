@@ -3,12 +3,18 @@ import React, { ChangeEvent, useRef } from 'react';
 
 export interface ISortOptionsProps {
   width: number;
-  options: any[];
+  options: Option[];
   by: string;
   label?: string;
   direction?: string;
   className?: string;
   onSortChange: (value: string) => void;
+}
+
+interface Option {
+  label: string;
+  by: string;
+  direction?: string;
 }
 
 export const SortOptions: React.FC<ISortOptionsProps> = (props: ISortOptionsProps) => {
@@ -36,7 +42,7 @@ export const SortOptions: React.FC<ISortOptionsProps> = (props: ISortOptionsProp
         onChange={handleChange}
         aria-label="Sort options select"
       >
-        {props.options.map((opt: any) => (
+        {props.options.map((opt: Option) => (
           <option
             key={`sort_${opt.label}`}
             value={`${opt.by}${!isUndefined(opt.direction) ? `_${opt.direction}` : ''}`}
