@@ -1,5 +1,7 @@
 import classnames from 'classnames';
-import { isArray, isNull, isUndefined } from 'lodash';
+import isArray from 'lodash/isArray';
+import isNull from 'lodash/isNull';
+import isUndefined from 'lodash/isUndefined';
 import React, { ChangeEvent, forwardRef, Ref, useEffect, useImperativeHandle, useState } from 'react';
 
 import { CheckBox } from '../Checkbox/Checkbox';
@@ -34,10 +36,12 @@ export interface IFiltersSectionProps {
   section: FilterSection;
   visibleTitle: boolean;
   contentClassName?: string;
+  searchBarClassName?: string;
   device: string;
   activeFilters?: string[];
   withSearchBar?: boolean;
   disabled?: boolean;
+  sortedBySelected?: boolean;
   onChange: (name: string, value: string, checked: boolean, type?: string) => void;
 }
 
@@ -46,10 +50,42 @@ const SEARCH_DELAY = 3 * 100; // 300ms
 export const FiltersSection = forwardRef<RefFiltersSection, IFiltersSectionProps>(
   (props: IFiltersSectionProps, ref: Ref<RefFiltersSection>) => {
     const [value, setValue] = useState<string>('');
-    const [visibleOptions, setVisibleOptions] = useState<FilterOption[] | { [key: string]: FilterOption[] }>(
-      props.section.options
-    );
     const [searchTimeout, setSearchTimeout] = useState<NodeJS.Timeout | null>(null);
+
+    const sortBySelected = (options: FilterOption[]): FilterOption[] => {
+      const selected = options.filter((option: FilterOption) =>
+        props.activeFilters!.includes((option.key || option.value)!)
+      );
+      const notSelected = options.filter(
+        (option: FilterOption) => !props.activeFilters!.includes((option.key || option.value)!)
+      );
+      return [...selected, ...notSelected];
+    };
+
+    const sortOptions = (
+      options: FilterOption[] | { [key: string]: FilterOption[] }
+    ): FilterOption[] | { [key: string]: FilterOption[] } => {
+      if (!isUndefined(props.activeFilters) && !isUndefined(props.sortedBySelected) && props.sortedBySelected) {
+        if (isArray(options)) {
+          return sortBySelected(options);
+        } else {
+          const sortedOptions: { [key: string]: FilterOption[] } = {};
+          Object.keys(options).forEach((group: string) => {
+            const opts = sortBySelected(options[group]);
+            if (opts.length > 0) {
+              sortedOptions[group] = opts;
+            }
+          });
+          return sortedOptions;
+        }
+      } else {
+        return options;
+      }
+    };
+
+    const [visibleOptions, setVisibleOptions] = useState<FilterOption[] | { [key: string]: FilterOption[] }>(
+      sortOptions(props.section.options)
+    );
 
     useImperativeHandle(ref, () => ({
       cleanValue: () => {
@@ -62,10 +98,12 @@ export const FiltersSection = forwardRef<RefFiltersSection, IFiltersSectionProps
         if (value !== '') {
           if (isArray(props.section.options)) {
             setVisibleOptions(
-              props.section.options.filter(
-                (f: FilterOption) =>
-                  (f.value && f.value.toLowerCase().includes(value.toLowerCase())) ||
-                  f.name.toLowerCase().includes(value.toLowerCase())
+              sortOptions(
+                props.section.options.filter(
+                  (f: FilterOption) =>
+                    (f.value && f.value.toLowerCase().includes(value.toLowerCase())) ||
+                    f.name.toLowerCase().includes(value.toLowerCase())
+                )
               )
             );
           } else {
@@ -82,16 +120,16 @@ export const FiltersSection = forwardRef<RefFiltersSection, IFiltersSectionProps
                 options[group] = opts;
               }
             });
-            setVisibleOptions(options);
+            setVisibleOptions(sortOptions(options));
           }
         } else {
-          setVisibleOptions(props.section.options);
+          setVisibleOptions(sortOptions(props.section.options));
         }
       }
     };
 
     useEffect(() => {
-      setVisibleOptions(props.section.options);
+      setVisibleOptions(sortOptions(props.section.options));
     }, [props.section.options]);
 
     useEffect(() => {
@@ -104,6 +142,12 @@ export const FiltersSection = forwardRef<RefFiltersSection, IFiltersSectionProps
         }, SEARCH_DELAY)
       );
     }, [value]);
+
+    useEffect(() => {
+      if (!isUndefined(props.activeFilters)) {
+        setVisibleOptions(sortOptions(props.section.options));
+      }
+    }, [props.activeFilters]);
 
     useEffect(() => {
       return () => {
@@ -128,7 +172,11 @@ export const FiltersSection = forwardRef<RefFiltersSection, IFiltersSectionProps
               onValueChange={(newValue: string) => setValue(newValue)}
               onSearch={filterOptions}
               cleanSearchValue={() => setValue('')}
-              classNameSearch={classnames(styles.search, { [styles.searchWithClose]: value !== '' })}
+              classNameSearch={classnames(
+                styles.search,
+                { [styles.searchWithClose]: value !== '' },
+                props.searchBarClassName
+              )}
               placeholder={`Search ${props.section.key || ''}`}
               bigSize={false}
               disabled={props.disabled}
