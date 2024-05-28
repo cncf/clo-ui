@@ -172,11 +172,8 @@ export const FiltersSection = forwardRef<RefFiltersSection, IFiltersSectionProps
               onValueChange={(newValue: string) => setValue(newValue)}
               onSearch={filterOptions}
               cleanSearchValue={() => setValue('')}
-              classNameSearch={classnames(
-                styles.search,
-                { [styles.searchWithClose]: value !== '' },
-                props.searchBarClassName
-              )}
+              classNameWrapper={classnames(styles.searchWrapper, props.searchBarClassName)}
+              classNameSearch={classnames(styles.search, { [styles.searchWithClose]: value !== '' })}
               placeholder={`Search ${props.section.key || ''}`}
               bigSize={false}
               disabled={props.disabled}

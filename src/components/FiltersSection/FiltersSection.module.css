@@ -10,9 +10,14 @@ label {
   font-size: 0.9rem;
 }
 
+.searchWrapper {
+  width: (100% - 1rem);
+}
+
 .search {
   box-shadow: 0 0 0 0.3rem var(--clo-secondary-15) !important;
-  margin: 0rem !important;
+  margin: 0rem;
+  width: 100% !important;
 }
 
 .searchWithClose input {
