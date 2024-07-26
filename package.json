@@ -1,6 +1,6 @@
 {
   "name": "clo-ui",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "license": "Apache-2.0",
   "description": "CLO common library: components, utils and hooks",
   "main": "dist/cjs/index.js",
@@ -61,7 +61,7 @@
     "prettier": "^3.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "rimraf": "^6.0.1",
+    "rimraf": "5.0.7",
     "rollup": "^4.19.0",
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
