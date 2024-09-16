@@ -1,6 +1,6 @@
 import { isUndefined } from 'lodash';
 import isNull from 'lodash/isNull';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { MdOutlineImageNotSupported } from 'react-icons/md';
 
 export interface IImageProps {
@@ -14,6 +14,10 @@ export interface IImageProps {
 export const Image: React.FC<IImageProps> = (props) => {
   const image = useRef<HTMLImageElement | null>(null);
   const [error, setError] = useState(false);
+
+  useEffect(() => {
+    setError(false);
+  }, [props.url, props.dark_url]);
 
   return (
     <>
