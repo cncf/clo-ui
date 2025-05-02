@@ -100,6 +100,19 @@
     }
   }
 
+  .bg-dark-orange {
+    background-color: rgba(255, 132, 38, 0.2) !important;
+    border-color: rgba(255, 132, 38, 0.75) !important;
+    color: var(--color-lighter-font) !important;
+
+    &.clickable:hover,
+    &.clickable:active {
+      background-color: rgba(255, 132, 38, 0.4) !important;
+      border-color: rgba(255, 132, 38, 0.75) !important;
+      color: var(--color-extra-light-font) !important;
+    }
+  }
+
   .bg-solid-yellow {
     background-color: #c69c14 !important;
     border-color: #c69c14 !important;
