@@ -189,6 +189,19 @@ a,
   }
 }
 
+.bg-dark-orange {
+  background-color: rgba(254, 110, 0, 0.1) !important;
+  border-color: rgba(254, 110, 0, 0.15) !important;
+  color: #612a00;
+
+  &.clickable:hover,
+  &.clickable:active {
+    background-color: rgba(254, 110, 0, 0.1) !important;
+    border-color: rgba(254, 110, 0, 0.15) !important;
+    color: #612a00;
+  }
+}
+
 .bg-solid-yellow {
   background-color: #f8c419 !important;
   border-color: #f8c419 !important;
