@@ -19,6 +19,7 @@ export interface ISearchbarWithDropdownProps {
   onSearch: (value: string) => void;
   openProject: (foundation: string, projectName: string) => void;
   searchParams: URLSearchParams;
+  classNameSearch?: string;
 }
 
 interface Project {
@@ -207,7 +208,7 @@ export const SearchbarWithDropdown = (props: ISearchbarWithDropdownProps) => {
   return (
     <>
       <div
-        className={`d-flex align-items-center overflow-hidden searchBar lh-base bg-white mx-auto ${styles.searchBar} search`}
+        className={`d-flex align-items-center overflow-hidden searchBar lh-base bg-white mx-auto ${styles.searchBar} ${props.classNameSearch} search`}
       >
         <input
           data-testid="search-bar"
