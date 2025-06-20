@@ -18,7 +18,7 @@ export const CategoryBadge: React.FC<ICategoryBadgeProps> = (props: ICategoryBad
       data-testid="category-badge"
       className={`badge text-dark lighterText rounded-0 position-relative ${styles.badge} ${props.className}`}
     >
-      <div className="d-flex flex-row align-items-center text-capitalize">
+      <div className="text-capitalize text-truncate">
         {!isUndefined(props.maxLength) ? cutString(props.category, props.maxLength) : props.category}
       </div>
     </div>

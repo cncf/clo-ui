@@ -58,7 +58,7 @@ export const FoundationBadge: React.FC<IFoundationBadgeProps> = (props: IFoundat
           data-testid="foundation-badge"
           className={`badge text-light extraLightText rounded-0 position-relative ${styles.badge} ${props.className}`}
         >
-          <div className="d-flex flex-row align-items-center text-uppercase text-truncate">
+          <div className="text-uppercase text-truncate">
             {!isUndefined(props.maxLength) ? cutString(foundationName, props.maxLength) : foundationName}
           </div>
         </div>
@@ -69,7 +69,7 @@ export const FoundationBadge: React.FC<IFoundationBadgeProps> = (props: IFoundat
           className={`badge text-light extraLightText rounded-0 position-relative ${styles.badge} ${props.className}`}
           onClick={props.onClick}
         >
-          <div className="d-flex flex-row align-items-center text-uppercase">
+          <div className="text-uppercase text-truncate">
             {!isUndefined(props.maxLength) ? cutString(foundationName, props.maxLength) : foundationName}
           </div>
         </button>

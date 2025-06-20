@@ -51,7 +51,7 @@ export const MaturityBadge: React.FC<IMaturityBadgeProps> = (props: IMaturityBad
           data-testid="maturity-badge"
           className={`badge text-dark lighterText rounded-0 position-relative ${styles.badge} ${props.className}`}
         >
-          <div className="d-flex flex-row align-items-center text-capitalize">
+          <div className="text-capitalize text-truncate">
             {!isUndefined(props.maxLength) ? cutString(levelData, props.maxLength) : levelData}
           </div>
         </div>
@@ -62,7 +62,7 @@ export const MaturityBadge: React.FC<IMaturityBadgeProps> = (props: IMaturityBad
           className={`badge text-dark lighterText rounded-0 position-relative ${styles.badge} ${props.className}`}
           onClick={props.onClick}
         >
-          <div className="d-flex flex-row align-items-center text-capitalize">
+          <div className="text-capitalize text-truncate">
             {!isUndefined(props.maxLength) ? cutString(levelData, props.maxLength) : levelData}
           </div>
         </button>
