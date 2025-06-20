@@ -19,6 +19,10 @@
   right: 0;
 }
 
+.tooltipArrow {
+  top: 0px;;
+}
+
 .centerAligned .tooltipArrow {
   left: calc(50% - 3px);
 }
