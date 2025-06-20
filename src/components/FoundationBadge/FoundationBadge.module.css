@@ -1,6 +1,7 @@
 .badge {
   background-color: var(--clo-tertiary);
   border: 1px solid var(--clo-tertiary);
-  padding: 0.2em 0.5em;
+  padding: 0.15em 0.5em;
   line-height: 1.15;
+  height: 19px;
 }
