@@ -9,6 +9,7 @@ const defaultProps = {
 };
 
 const createObjectMock = jest.fn();
+const clickMock = jest.spyOn(HTMLAnchorElement.prototype, 'click').mockImplementation(() => undefined);
 
 Object.defineProperty(window, 'URL', {
   value: {
@@ -18,7 +19,11 @@ Object.defineProperty(window, 'URL', {
 
 describe('BlockCodeButtons', () => {
   beforeEach(() => {
-    jest.resetAllMocks();
+    jest.clearAllMocks();
+  });
+
+  afterAll(() => {
+    clickMock.mockRestore();
   });
 
   it('creates snapshot', () => {

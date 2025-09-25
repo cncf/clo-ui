@@ -8,6 +8,25 @@ const defaultProps = {
   btnContent: 'Button content',
 };
 
+type DropdownContentProps = {
+  closeDropdown?: () => void;
+  isVisibleDropdown?: boolean;
+};
+
+const DropdownContent = ({
+  closeDropdown = () => undefined,
+  isVisibleDropdown = false,
+}: DropdownContentProps) => (
+  <>
+    Dropdown content
+    {isVisibleDropdown && (
+      <button type="button" onClick={closeDropdown}>
+        Close dropdown
+      </button>
+    )}
+  </>
+);
+
 describe('Dropdown', () => {
   afterEach(() => {
     jest.resetAllMocks();
@@ -16,7 +35,7 @@ describe('Dropdown', () => {
   it('creates snapshot', () => {
     const { asFragment } = render(
       <Dropdown {...defaultProps}>
-        <>Dropdown content</>
+        <DropdownContent />
       </Dropdown>
     );
     expect(asFragment()).toMatchSnapshot();
@@ -25,7 +44,7 @@ describe('Dropdown', () => {
   it('renders proper content', () => {
     render(
       <Dropdown {...defaultProps}>
-        <>Dropdown content</>
+        <DropdownContent />
       </Dropdown>
     );
 
@@ -39,7 +58,7 @@ describe('Dropdown', () => {
   it('opens dropdown', async () => {
     render(
       <Dropdown {...defaultProps}>
-        <>Dropdown content</>
+        <DropdownContent />
       </Dropdown>
     );
 
