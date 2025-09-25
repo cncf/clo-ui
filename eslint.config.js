@@ -5,11 +5,12 @@
 const js = require('@eslint/js');
 const simpleImportSort = require('eslint-plugin-simple-import-sort');
 const tseslint = require('typescript-eslint');
+const tsRecommended = tseslint.plugin.configs['flat/recommended'];
 const reactHooks = require('eslint-plugin-react-hooks');
 
 module.exports = [
   js.configs.recommended,
-  ...tseslint.configs.recommended,
+  ...tsRecommended,
   {
     linterOptions: {
       reportUnusedDisableDirectives: 'error',
