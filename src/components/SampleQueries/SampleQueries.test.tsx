@@ -40,8 +40,14 @@ jest.mock('lodash', () => ({
 }));
 
 describe('SampleQueries', () => {
+  const assignMock = jest.fn();
+
+  delete (window as any).location; // eslint-disable-line @typescript-eslint/no-explicit-any
+  (window as any).location = { assign: assignMock as any } as Location; // eslint-disable-line @typescript-eslint/no-explicit-any
+
   afterEach(() => {
-    jest.clearAllMocks();
+    assignMock.mockClear();
+    jest.resetAllMocks();
   });
 
   it('creates snapshot', () => {

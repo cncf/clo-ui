@@ -2,7 +2,7 @@ import { isNull } from 'lodash';
 import { RefObject, useCallback, useEffect, useState } from 'react';
 
 export const useOutsideClick = (
-  refs: RefObject<HTMLElement | null>[],
+  refs: RefObject<HTMLElement>[],
   enabled: boolean,
   onClickOutside: (e: MouseEvent) => void
 ): [boolean] => {
