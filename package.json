@@ -27,9 +27,9 @@
       "require": "./dist/cjs/index.js"
     },
     "./components/*": {
-      "types": "./dist/types/components/*/*.d.ts",
-      "import": "./dist/esm/components/*/*.js",
-      "require": "./dist/cjs/components/*/*.js"
+      "types": "./dist/types/components/*/index.d.ts",
+      "import": "./dist/esm/components/*.js",
+      "require": "./dist/cjs/components/*.js"
     },
     "./hooks/*": {
       "types": "./dist/types/hooks/*.d.ts",
@@ -48,7 +48,7 @@
   "typesVersions": {
     "*": {
       "components/*": [
-        "dist/types/components/*/*.d.ts"
+        "dist/types/components/*/index.d.ts"
       ],
       "hooks/*": [
         "dist/types/hooks/*.d.ts"

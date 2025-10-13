@@ -16,7 +16,7 @@ export { ElementWithTooltip, IElementWithTooltipProps } from './ElementWithToolt
 export { ExternalLink, IExternalLinkProps } from './ExternalLink';
 export { FilterOption, FilterSection, FiltersSection, IFiltersSectionProps, RefFiltersSection } from './FiltersSection';
 export { Footer, IFooterProps } from './Footer';
-export { Foundation, FoundationBadge, FOUNDATIONS, IFoundationBadgeProps } from './FoundationBadge';
+export { Foundation, FoundationBadge, FOUNDATIONS, IFoundationBadgeProps } from './Foundation';
 export { FullScreenModal, IFullScreenModalProps } from './FullScreenModal';
 export { GenericBadge, IGenericBadgeProps } from './GenericBadge';
 export { HoverableItem, IHoverableItemProps } from './HoverableItem';
