@@ -1,10 +1,14 @@
 {
   "name": "clo-ui",
-  "version": "0.4.5",
+  "version": "0.5.0",
   "license": "Apache-2.0",
   "description": "CLO common library: components, utils and hooks",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "sideEffects": [
+    "dist/styles/**/*.css"
+  ],
   "scripts": {
     "build": "rimraf dist && NODE_ENV=production rollup -c --bundleConfigAsCjs",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
@@ -16,6 +20,47 @@
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./components/*": {
+      "types": "./dist/types/components/*/*.d.ts",
+      "import": "./dist/esm/components/*/*.js",
+      "require": "./dist/cjs/components/*/*.js"
+    },
+    "./hooks/*": {
+      "types": "./dist/types/hooks/*.d.ts",
+      "import": "./dist/esm/hooks/*.js",
+      "require": "./dist/cjs/hooks/*.js"
+    },
+    "./utils/*": {
+      "types": "./dist/types/utils/*.d.ts",
+      "import": "./dist/esm/utils/*.js",
+      "require": "./dist/cjs/utils/*.js"
+    },
+    "./styles/*": {
+      "default": "./dist/styles/*"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "components/*": [
+        "dist/types/components/*/*.d.ts"
+      ],
+      "hooks/*": [
+        "dist/types/hooks/*.d.ts"
+      ],
+      "utils/*": [
+        "dist/types/utils/*.d.ts"
+      ],
+      "*": [
+        "dist/types/*.d.ts"
+      ]
+    }
+  },
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
