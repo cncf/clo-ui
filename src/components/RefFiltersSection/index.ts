@@ -1,0 +1,1 @@
+export { RefFiltersSection } from '../FiltersSection';

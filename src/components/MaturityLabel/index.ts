@@ -1,0 +1,1 @@
+export { MaturityLabel } from '../MaturityBadge';

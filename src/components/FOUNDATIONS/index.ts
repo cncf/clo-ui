@@ -1,0 +1,1 @@
+export { FOUNDATIONS } from '../FoundationBadge';

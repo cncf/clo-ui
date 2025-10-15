@@ -1,0 +1,1 @@
+export { alertDispatcher } from '../AlertController';

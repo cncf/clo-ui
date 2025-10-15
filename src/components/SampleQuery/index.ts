@@ -1,0 +1,1 @@
+export { SampleQuery } from '../SampleQueries';
