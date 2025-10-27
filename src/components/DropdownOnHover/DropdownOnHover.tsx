@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { isUndefined } from 'lodash';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useId, useRef, useState } from 'react';
 
 import { useOutsideClick } from '../../hooks/useOutsideClick';
 import styles from './DropdownOnHover.module.css';
@@ -14,14 +14,17 @@ export interface IDropdownOnHoverProps {
   width?: number;
   tooltipStyle?: boolean;
   onClose?: () => void;
+  ariaLabel?: string;
 }
 
 export const DropdownOnHover = (props: IDropdownOnHoverProps) => {
   const ref = useRef(null);
+  const dropdownId = useId();
   const [openStatus, setOpenStatus] = useState(false);
   const [onLinkHover, setOnLinkHover] = useState(false);
   const [onDropdownHover, setOnDropdownHover] = useState(false);
   useOutsideClick([ref], openStatus, () => setOpenStatus(false));
+  const arialabel = props.ariaLabel || 'Toggle dropdown';
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
@@ -53,6 +56,7 @@ export const DropdownOnHover = (props: IDropdownOnHoverProps) => {
           <div ref={ref} onMouseEnter={() => setOnDropdownHover(true)} onMouseLeave={() => setOnDropdownHover(false)}>
             <div
               role="complementary"
+              id={dropdownId}
               className={classNames(
                 'dropdown-menu rounded-0 text-wrap',
                 styles.dropdown,
@@ -65,6 +69,7 @@ export const DropdownOnHover = (props: IDropdownOnHoverProps) => {
               style={{
                 width: props.width ? `${props.width}px` : 'auto',
               }}
+              aria-hidden={!openStatus}
             >
               {props.tooltipStyle && (
                 <div className={`arrow ${styles.arrow} ${props.arrowClassName}`} data-testid="dropdown-arrow" />
@@ -76,6 +81,7 @@ export const DropdownOnHover = (props: IDropdownOnHoverProps) => {
 
         <div
           className="cursorDefault"
+          role="button"
           onMouseEnter={(e) => {
             e.preventDefault();
             setOnLinkHover(true);
@@ -88,6 +94,9 @@ export const DropdownOnHover = (props: IDropdownOnHoverProps) => {
             e.stopPropagation();
           }}
           aria-expanded={openStatus}
+          aria-haspopup="true"
+          aria-controls={dropdownId}
+          aria-label={arialabel}
         >
           {props.linkContent}
         </div>
