@@ -119,7 +119,7 @@
     "rollup-plugin-typescript2": "^0.36.0",
     "sass": "^1.93.2",
     "ts-jest": "^29.4.5",
-    "typescript": "^5.9.3",
+    "typescript": "~5.8.2",
     "typescript-eslint": "^8.46.2"
   },
   "resolutions": {
