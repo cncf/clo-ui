@@ -6,13 +6,13 @@ import styles from './Checkbox.module.css';
 export interface ICheckboxProps {
   name: string;
   value: string;
-  label: string | JSX.Element;
+  label: React.ReactNode;
   legend?: string;
   checked: boolean;
   disabled?: boolean;
   className?: string;
   labelClassName?: string;
-  icon?: JSX.Element;
+  icon?: React.ReactNode;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   device: string;
 }

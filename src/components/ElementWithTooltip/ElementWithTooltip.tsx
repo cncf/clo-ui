@@ -7,10 +7,10 @@ import styles from './ElementWithTooltip.module.css';
 
 export interface IElementWithTooltipProps {
   active?: boolean | null;
-  element: JSX.Element;
+  element: React.ReactNode;
   wrapperElement?: string;
   visibleTooltip: boolean;
-  tooltipMessage: string | JSX.Element;
+  tooltipMessage: string | React.ReactNode;
   className?: string;
   tooltipClassName?: string;
   tooltipArrowClassName?: string;
@@ -82,7 +82,7 @@ export const ElementWithTooltip = (props: IElementWithTooltipProps) => {
     }
   }, []);
 
-  const WrapperElement = (props.wrapperElement || 'div') as keyof JSX.IntrinsicElements;
+  const WrapperElement = (props.wrapperElement || 'div') as keyof React.JSX.IntrinsicElements;
 
   if (isUndefined(props.active) || isNull(props.active) || !props.active) return null;
 

@@ -10,7 +10,7 @@ exports[`DropdownOnHover creates snapshot 1`] = `
         <div
           aria-hidden="true"
           class="dropdown-menu rounded-0 text-wrap dropdown"
-          id=":r0:"
+          id="_r_0_"
           role="complementary"
           style="width: auto;"
         >
@@ -23,7 +23,7 @@ exports[`DropdownOnHover creates snapshot 1`] = `
       </div>
     </div>
     <div
-      aria-controls=":r0:"
+      aria-controls="_r_0_"
       aria-expanded="false"
       aria-haspopup="true"
       aria-label="Toggle dropdown"

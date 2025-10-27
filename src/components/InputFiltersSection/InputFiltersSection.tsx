@@ -13,7 +13,7 @@ export interface IInputFiltersSectionProps {
   device: string;
   activeFilters?: string[];
   inputType?: string;
-  decoratorActiveFilter?: string | JSX.Element;
+  decoratorActiveFilter?: string | React.ReactNode;
   onChange: (name: string, value: string, checked: boolean) => void;
 }
 

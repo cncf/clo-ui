@@ -15,12 +15,12 @@ export interface ITabProps {
   name: string;
   title: string;
   shortTitle?: string;
-  content: JSX.Element;
+  content: React.ReactNode;
 }
 
 export const Tabs = React.memo(function Tabs(props: ITabsProps) {
   const [activeTab, setActiveTab] = useState(props.active);
-  const [visibleContent, setVisibleContent] = useState<JSX.Element | undefined>();
+  const [visibleContent, setVisibleContent] = useState<React.ReactNode | undefined>();
 
   useEffect(() => {
     const currentActiveTab = props.tabs.find((tab: ITabProps) => tab.name === activeTab);

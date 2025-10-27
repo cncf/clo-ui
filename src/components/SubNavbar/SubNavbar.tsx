@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './SubNavbar.module.css';
 
 export interface ISubNavbarProps {
-  children: JSX.Element;
+  children: React.ReactNode;
 }
 
 export const SubNavbar = (props: ISubNavbarProps) => {

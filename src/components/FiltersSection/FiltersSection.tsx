@@ -25,7 +25,7 @@ export interface FilterOption {
   type?: string;
   key?: string;
   legend?: string;
-  decorator?: JSX.Element;
+  decorator?: React.ReactNode;
 }
 
 export interface RefFiltersSection {

@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './NoData.module.css';
 
 export interface INoDataProps {
-  children: string | JSX.Element | JSX.Element[];
+  children: React.ReactNode;
   className?: string;
 }
 

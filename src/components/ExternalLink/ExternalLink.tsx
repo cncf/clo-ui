@@ -5,7 +5,7 @@ import React from 'react';
 import { FiExternalLink } from 'react-icons/fi';
 
 export interface IExternalLinkProps {
-  children: JSX.Element | JSX.Element[] | string;
+  children: React.ReactNode;
   href: string;
   className?: string;
   btnType?: boolean;
