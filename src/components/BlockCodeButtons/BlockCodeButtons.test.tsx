@@ -9,9 +9,7 @@ const defaultProps = {
 };
 
 const createObjectMock = jest.fn();
-const anchorClickMock = jest
-  .spyOn(HTMLAnchorElement.prototype, 'click')
-  .mockImplementation(() => undefined);
+const anchorClickMock = jest.spyOn(HTMLAnchorElement.prototype, 'click').mockImplementation(() => undefined);
 
 Object.defineProperty(window, 'URL', {
   value: {

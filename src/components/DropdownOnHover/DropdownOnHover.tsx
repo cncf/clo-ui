@@ -14,6 +14,7 @@ export interface IDropdownOnHoverProps {
   width?: number;
   tooltipStyle?: boolean;
   onClose?: () => void;
+  ariaLabel?: string;
 }
 
 export const DropdownOnHover = (props: IDropdownOnHoverProps) => {
@@ -23,6 +24,7 @@ export const DropdownOnHover = (props: IDropdownOnHoverProps) => {
   const [onLinkHover, setOnLinkHover] = useState(false);
   const [onDropdownHover, setOnDropdownHover] = useState(false);
   useOutsideClick([ref], openStatus, () => setOpenStatus(false));
+  const triggerAriaLabel = typeof props.linkContent === 'string' ? undefined : props.ariaLabel;
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
@@ -94,6 +96,7 @@ export const DropdownOnHover = (props: IDropdownOnHoverProps) => {
           aria-expanded={openStatus}
           aria-haspopup="true"
           aria-controls={dropdownId}
+          aria-label={triggerAriaLabel}
         >
           {props.linkContent}
         </div>

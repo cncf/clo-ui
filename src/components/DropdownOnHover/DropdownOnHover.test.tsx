@@ -32,6 +32,16 @@ describe('DropdownOnHover', () => {
       expect(screen.getByRole('complementary', { hidden: true })).toBeInTheDocument();
     });
 
+    it('uses accessible label when content is not text', () => {
+      render(
+        <DropdownOnHover linkContent={<svg aria-hidden="true" data-testid="icon" />} ariaLabel="Open dropdown menu">
+          <>children</>
+        </DropdownOnHover>
+      );
+
+      expect(screen.getByRole('button', { name: 'Open dropdown menu' })).toBeInTheDocument();
+    });
+
     it('displays dropdown to enter on content and hides on leave', async () => {
       jest.useFakeTimers();
 
