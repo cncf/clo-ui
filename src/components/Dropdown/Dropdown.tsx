@@ -7,8 +7,11 @@ import styles from './Dropdown.module.css';
 
 export interface IDropdownProps {
   label: string;
-  btnContent: JSX.Element | string;
-  children: JSX.Element;
+  btnContent: React.ReactNode;
+  children: React.ReactElement<{
+    closeDropdown?: () => void;
+    isVisibleDropdown?: boolean;
+  }>;
   btnClassName?: string;
   dropdownClassName?: string;
   onClose?: () => void;
@@ -17,7 +20,7 @@ export interface IDropdownProps {
 
 export const Dropdown: React.FC<IDropdownProps> = (props: IDropdownProps) => {
   const [visibleDropdown, setVisibleDropdown] = useState(false);
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement | null>(null);
   useOutsideClick([ref], visibleDropdown, () => setVisibleDropdown(false));
 
   const closeDropdown = () => {

@@ -5,7 +5,7 @@ import { useBodyScroll, useOutsideClick } from '../../hooks';
 import styles from './FullScreenModal.module.css';
 
 export interface IFullScreenModalProps {
-  children: JSX.Element | JSX.Element[];
+  children: React.ReactNode;
   open?: boolean;
   onClose?: () => void;
   breakPoint?: string;

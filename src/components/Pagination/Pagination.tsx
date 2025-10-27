@@ -18,7 +18,7 @@ export interface IPaginationProps {
 interface ButtonProps {
   pageNumber: number;
   disabled: boolean;
-  content?: JSX.Element | string;
+  content?: React.ReactNode;
   active: number;
   onChange: (pageNumber: number) => void;
 }

@@ -1,1 +1,1 @@
-export { RefFiltersSection } from '../FiltersSection';
+export type { RefFiltersSection } from '../FiltersSection';

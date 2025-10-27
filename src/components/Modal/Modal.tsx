@@ -8,11 +8,11 @@ import { useOutsideClick } from '../../hooks/useOutsideClick';
 import styles from './Modal.module.css';
 
 export interface IModalProps {
-  children: JSX.Element | JSX.Element[];
+  children: React.ReactNode;
   buttonType?: string;
-  buttonContent?: string | JSX.Element;
+  buttonContent?: React.ReactNode;
   header?: string;
-  closeButton?: JSX.Element;
+  closeButton?: React.ReactNode;
   className?: string;
   modalClassName?: string;
   modalDialogClassName?: string;

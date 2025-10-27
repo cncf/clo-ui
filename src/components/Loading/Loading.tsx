@@ -14,7 +14,7 @@ export interface ILoadingProps {
 }
 
 export const Loading: React.FC<ILoadingProps> = (props: ILoadingProps) => {
-  const getSpinner = (): JSX.Element => {
+  const getSpinner = (): React.ReactNode => {
     return (
       <div
         className={classnames(styles.wave, { [styles.miniWave]: props.smallSize }, props.spinnerClassName)}

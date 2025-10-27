@@ -83,6 +83,12 @@ const conf = {
   treeshake: {
     moduleSideEffects: (id) => id.endsWith('.css'),
   },
+  onwarn(warning, warn) {
+    if (warning.code === 'EMPTY_BUNDLE') {
+      return;
+    }
+    warn(warning);
+  },
   output: [baseOutput('./dist/cjs', 'cjs'), baseOutput('./dist/esm', 'es')],
   plugins: [
     nodeResolve(),

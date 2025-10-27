@@ -1,7 +1,7 @@
 import React from 'react';
 
 export interface IHoverableItemProps {
-  children: JSX.Element | JSX.Element[] | string;
+  children: React.ReactNode;
   onHover?: () => void;
   onLeave?: () => void;
 }

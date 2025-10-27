@@ -14,7 +14,7 @@ export interface IButtonCopyToClipboardProps {
   visibleBtnText?: boolean;
   contentBtn?: string;
   style?: { [key: string]: string };
-  icon?: JSX.Element;
+  icon?: React.ReactNode;
   disabled?: boolean;
   label?: string;
   tooltipType?: 'normal' | 'light';

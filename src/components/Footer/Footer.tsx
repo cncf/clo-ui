@@ -3,8 +3,8 @@ import React from 'react';
 import styles from './Footer.module.css';
 
 export interface IFooterProps {
-  logo: JSX.Element;
-  children: JSX.Element;
+  logo: React.ReactNode;
+  children: React.ReactNode;
   className?: string;
 }
 

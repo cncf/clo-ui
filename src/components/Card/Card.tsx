@@ -7,7 +7,7 @@ import styles from './Card.module.css';
 export interface ICardProps {
   wrapperClassName?: string;
   className?: string;
-  children: JSX.Element;
+  children: React.ReactNode;
   hoverable: boolean;
   onClick?: () => void;
 }

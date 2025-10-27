@@ -4,7 +4,7 @@ import styles from './Navbar.module.css';
 
 export interface INavbarProps {
   navbarClassname?: string;
-  children: JSX.Element;
+  children: React.ReactNode;
 }
 
 export const Navbar: React.FC<INavbarProps> = (props: INavbarProps) => {

@@ -6,8 +6,8 @@ import { useOutsideClick } from '../../hooks/useOutsideClick';
 import styles from './DropdownOnHover.module.css';
 
 export interface IDropdownOnHoverProps {
-  linkContent: JSX.Element | string;
-  children: JSX.Element;
+  linkContent: React.ReactNode;
+  children: React.ReactNode;
   className?: string;
   dropdownClassName?: string;
   arrowClassName?: string;

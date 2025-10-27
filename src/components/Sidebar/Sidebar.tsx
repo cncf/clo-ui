@@ -8,14 +8,14 @@ import styles from './Sidebar.module.css';
 
 export interface ISidebarProps {
   label: string;
-  children: JSX.Element | JSX.Element[];
-  header: JSX.Element | JSX.Element[] | string;
+  children: React.ReactNode;
+  header: React.ReactNode;
   buttonType?: string;
   buttonTitle?: string;
-  buttonIcon?: JSX.Element;
-  closeButton?: JSX.Element | string;
+  buttonIcon?: React.ReactNode;
+  closeButton?: React.ReactNode;
   closeButtonClassName?: string;
-  leftButton?: JSX.Element;
+  leftButton?: React.ReactNode;
   className?: string;
   wrapperClassName?: string;
   direction?: 'left' | 'right';

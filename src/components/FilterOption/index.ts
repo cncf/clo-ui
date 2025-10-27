@@ -1,1 +1,1 @@
-export { FilterOption } from '../FiltersSection';
+export type { FilterOption } from '../FiltersSection';

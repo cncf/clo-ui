@@ -1,1 +1,1 @@
-export { FilterSection } from '../FiltersSection';
+export type { FilterSection } from '../FiltersSection';
