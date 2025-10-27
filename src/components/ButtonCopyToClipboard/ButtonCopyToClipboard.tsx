@@ -68,15 +68,15 @@ export const ButtonCopyToClipboard = (props: IButtonCopyToClipboardProps) => {
 
   return (
     <div className={`position-relative ${props.wrapperClassName}`}>
-      {/* {copyStatus && ( */}
-      <div
-        className={classnames('tooltip bs-tooltip-bottom show end-0', styles.tooltip, props.tooltipClassName)}
-        role="tooltip"
-      >
-        <div className={`tooltip-arrow ${styles.tooltipArrow} ${props.arrowClassName}`} />
-        <div className={`tooltip-inner rounded-0 ${styles.tooltipContent}`}>Copied!</div>
-      </div>
-      {/* )} */}
+      {copyStatus && (
+        <div
+          className={classnames('tooltip bs-tooltip-bottom show end-0', styles.tooltip, props.tooltipClassName)}
+          role="tooltip"
+        >
+          <div className={`tooltip-arrow ${styles.tooltipArrow} ${props.arrowClassName}`} />
+          <div className={`tooltip-inner rounded-0 ${styles.tooltipContent}`}>Copied!</div>
+        </div>
+      )}
       <button
         type="button"
         className={classnames(
