@@ -79,6 +79,7 @@ export const DropdownOnHover = (props: IDropdownOnHoverProps) => {
 
         <div
           className="cursorDefault"
+          role="button"
           onMouseEnter={(e) => {
             e.preventDefault();
             setOnLinkHover(true);
