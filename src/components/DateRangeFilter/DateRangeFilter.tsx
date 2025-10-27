@@ -1,6 +1,6 @@
 import { isEmpty, isEqual, isNil, omitBy } from 'lodash';
 import moment from 'moment';
-import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
+import React, { ChangeEvent, useEffect, useId, useRef, useState } from 'react';
 
 import { useOutsideClick } from '../../hooks';
 import { DateRangeBtn } from './DateRangeBtn';
@@ -30,6 +30,9 @@ export const DateRangeFilter = (props: IDateRangeFilterProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const [showCalendar, setShowCalendar] = useState<boolean>(false);
   useOutsideClick([ref], showCalendar, () => setShowCalendar(false));
+  const inputIdBase = useId().replace(/:/g, '');
+  const fromInputId = `${inputIdBase}-from`;
+  const toInputId = `${inputIdBase}-to`;
 
   const updateRange = (dates: DateRangeOpts) => {
     if (
@@ -84,7 +87,7 @@ export const DateRangeFilter = (props: IDateRangeFilterProps) => {
 
       <div className={`flex-column mb-4 ${styles.mobileDateRange}`}>
         <div className="my-2">
-          <label htmlFor="from" className={`form-label text-uppercase text-muted ${styles.label}`}>
+          <label htmlFor={fromInputId} className={`form-label text-uppercase text-muted ${styles.label}`}>
             From:
           </label>
           <input
@@ -92,13 +95,13 @@ export const DateRangeFilter = (props: IDateRangeFilterProps) => {
             className={`form-control form-control-sm rounded-0 ${styles.input}`}
             min={props.initialDate}
             max={dateTo}
-            id="from"
+            id={fromInputId}
             value={dateFrom}
             onChange={(e: ChangeEvent<HTMLInputElement>) => onDateChange(e.target.value, DateRange.From)}
           />
         </div>
         <div>
-          <label htmlFor="to" className={`form-label text-uppercase text-muted ${styles.label}`}>
+          <label htmlFor={toInputId} className={`form-label text-uppercase text-muted ${styles.label}`}>
             To:
           </label>
           <input
@@ -106,7 +109,7 @@ export const DateRangeFilter = (props: IDateRangeFilterProps) => {
             className={`form-control form-control-sm rounded-0 ${styles.input}`}
             min={dateFrom}
             max={END_DATE}
-            id="to"
+            id={toInputId}
             value={dateTo}
             onChange={(e: ChangeEvent<HTMLInputElement>) => onDateChange(e.target.value, DateRange.To)}
           />
