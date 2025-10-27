@@ -5,22 +5,16 @@ import React, { ChangeEvent, useEffect, useId, useRef, useState } from 'react';
 import { useOutsideClick } from '../../hooks';
 import { DateRangeBtn } from './DateRangeBtn';
 import styles from './DateRangeFilter.module.css';
+import { DateRange, DateRangeOpts } from './types';
+
+export type { DateRangeOpts } from './types';
+export { DateRange } from './types';
 
 export interface IDateRangeFilterProps {
   initialDate: string;
   from?: string;
   to?: string;
   onDateRangeChange: (dates: DateRangeOpts) => void;
-}
-
-export interface DateRangeOpts {
-  from?: string;
-  to?: string;
-}
-
-export enum DateRange {
-  From = 'from',
-  To = 'to',
 }
 
 export const DateRangeFilter = (props: IDateRangeFilterProps) => {

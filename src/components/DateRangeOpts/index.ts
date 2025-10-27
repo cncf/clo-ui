@@ -1,1 +1,1 @@
-export { DateRangeOpts } from '../DateRangeFilter';
+export type { DateRangeOpts } from '../DateRangeFilter';

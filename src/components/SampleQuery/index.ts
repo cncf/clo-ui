@@ -1,1 +1,1 @@
-export { SampleQuery } from '../SampleQueries';
+export type { SampleQuery } from '../SampleQueries';

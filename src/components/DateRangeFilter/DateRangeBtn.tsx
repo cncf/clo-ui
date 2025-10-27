@@ -8,7 +8,7 @@ import { Calendar } from 'react-date-range';
 
 import { useOutsideClick } from '../../hooks';
 import styles from './DateRangeBtn.module.css';
-import { DateRange } from './DateRangeFilter';
+import { DateRange } from './types';
 
 export interface IDateRangeBtnProps {
   date: string;
