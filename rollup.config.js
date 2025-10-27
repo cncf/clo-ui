@@ -81,7 +81,7 @@ const conf = {
   input: inputEntries,
   external: externalDeps,
   treeshake: {
-    moduleSideEffects: false,
+    moduleSideEffects: (id) => id.endsWith('.css'),
   },
   output: [baseOutput('./dist/cjs', 'cjs'), baseOutput('./dist/esm', 'es')],
   plugins: [
