@@ -29,7 +29,7 @@ describe('DropdownOnHover', () => {
       );
 
       expect(screen.getByText('content')).toBeInTheDocument();
-      expect(screen.getByRole('complementary')).toBeInTheDocument();
+      expect(screen.getByRole('complementary', { hidden: true })).toBeInTheDocument();
     });
 
     it('displays dropdown to enter on content and hides on leave', async () => {
@@ -41,7 +41,7 @@ describe('DropdownOnHover', () => {
         </DropdownOnHover>
       );
 
-      const dropdown = screen.getByRole('complementary');
+      const dropdown = screen.getByRole('complementary', { hidden: true });
 
       expect(dropdown).not.toHaveClass('show');
 
@@ -52,7 +52,7 @@ describe('DropdownOnHover', () => {
       });
 
       expect(dropdown).toHaveClass('show');
-      expect(screen.getByRole('complementary')).toHaveTextContent('children');
+      expect(screen.getByRole('complementary', { hidden: true })).toHaveTextContent('children');
 
       await user.unhover(screen.getByText('content'));
 
@@ -74,7 +74,7 @@ describe('DropdownOnHover', () => {
         </DropdownOnHover>
       );
 
-      const dropdown = screen.getByRole('complementary');
+      const dropdown = screen.getByRole('complementary', { hidden: true });
       expect(dropdown).not.toHaveClass('show');
 
       await user.hover(screen.getByText('content'));
@@ -84,7 +84,7 @@ describe('DropdownOnHover', () => {
       });
 
       expect(dropdown).toHaveClass('show tooltipDropdown');
-      expect(screen.getByRole('complementary')).toHaveTextContent('children');
+      expect(screen.getByRole('complementary', { hidden: true })).toHaveTextContent('children');
       expect(screen.getByTestId('dropdown-arrow')).toBeInTheDocument();
 
       await user.unhover(screen.getByText('content'));
@@ -107,7 +107,7 @@ describe('DropdownOnHover', () => {
         </DropdownOnHover>
       );
 
-      const dropdown = screen.getByRole('complementary');
+      const dropdown = screen.getByRole('complementary', { hidden: true });
 
       await user.hover(screen.getByText('content'));
 
@@ -137,7 +137,7 @@ describe('DropdownOnHover', () => {
         </DropdownOnHover>
       );
 
-      const dropdown = screen.getByRole('complementary');
+      const dropdown = screen.getByRole('complementary', { hidden: true });
 
       await user.hover(screen.getByText('content'));
 

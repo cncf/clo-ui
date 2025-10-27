@@ -8,7 +8,9 @@ exports[`DropdownOnHover creates snapshot 1`] = `
     >
       <div>
         <div
+          aria-hidden="true"
           class="dropdown-menu rounded-0 text-wrap dropdown"
+          id=":r0:"
           role="complementary"
           style="width: auto;"
         >
@@ -21,7 +23,9 @@ exports[`DropdownOnHover creates snapshot 1`] = `
       </div>
     </div>
     <div
+      aria-controls=":r0:"
       aria-expanded="false"
+      aria-haspopup="true"
       class="cursorDefault"
     >
       content
