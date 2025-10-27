@@ -24,7 +24,7 @@ export const DropdownOnHover = (props: IDropdownOnHoverProps) => {
   const [onLinkHover, setOnLinkHover] = useState(false);
   const [onDropdownHover, setOnDropdownHover] = useState(false);
   useOutsideClick([ref], openStatus, () => setOpenStatus(false));
-  const triggerAriaLabel = typeof props.linkContent === 'string' ? undefined : props.ariaLabel;
+  const arialabel = props.ariaLabel || 'Toggle dropdown';
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
@@ -96,7 +96,7 @@ export const DropdownOnHover = (props: IDropdownOnHoverProps) => {
           aria-expanded={openStatus}
           aria-haspopup="true"
           aria-controls={dropdownId}
-          aria-label={triggerAriaLabel}
+          aria-label={arialabel}
         >
           {props.linkContent}
         </div>

@@ -26,6 +26,7 @@ exports[`DropdownOnHover creates snapshot 1`] = `
       aria-controls=":r0:"
       aria-expanded="false"
       aria-haspopup="true"
+      aria-label="Toggle dropdown"
       class="cursorDefault"
       role="button"
     >
