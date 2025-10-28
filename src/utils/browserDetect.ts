@@ -1,4 +1,4 @@
-import UAParser from 'ua-parser-js';
+import { UAParser } from 'ua-parser-js';
 
 type BrowserInfo = {
   browser?: {
@@ -15,8 +15,7 @@ class BrowserDetect {
       return;
     }
     try {
-      const Parser = (UAParser as unknown as { UAParser: new (ua?: string) => { getResult: () => BrowserInfo } }).UAParser;
-      const parser = new Parser(navigator.userAgent);
+      const parser = new UAParser(navigator.userAgent);
       this.ua = parser.getResult();
     } catch {
       this.ua = {};
