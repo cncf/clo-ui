@@ -1,21 +1,30 @@
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const parser = require('ua-parser-js');
+import UAParser from 'ua-parser-js';
 
-interface UserAgent {
+type BrowserInfo = {
   browser?: {
-    name: string;
+    name?: string;
   };
-}
+};
 
 class BrowserDetect {
-  private ua: UserAgent = {};
+  private ua: BrowserInfo = {};
 
   public init() {
-    this.ua = parser(navigator.userAgent);
+    if (typeof navigator === 'undefined') {
+      this.ua = {};
+      return;
+    }
+    try {
+      const Parser = (UAParser as unknown as { UAParser: new (ua?: string) => { getResult: () => BrowserInfo } }).UAParser;
+      const parser = new Parser(navigator.userAgent);
+      this.ua = parser.getResult();
+    } catch {
+      this.ua = {};
+    }
   }
 
   public isSafari(): boolean {
-    if (this.ua.browser && this.ua.browser.name.includes('Safari')) {
+    if (this.ua.browser && this.ua.browser.name && this.ua.browser.name.includes('Safari')) {
       return true;
     }
     return false;
