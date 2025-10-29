@@ -68,6 +68,8 @@ const externalDeps = [
   ...Object.keys(pkg.dependencies || {}),
 ];
 
+const isExternal = (id) => externalDeps.some((dep) => id === dep || id.startsWith(`${dep}/`));
+
 const baseOutput = (dir, format) => ({
   dir,
   format,
@@ -79,7 +81,7 @@ const baseOutput = (dir, format) => ({
 
 const conf = {
   input: inputEntries,
-  external: externalDeps,
+  external: isExternal,
   treeshake: {
     moduleSideEffects: (id) => id.endsWith('.css'),
   },
