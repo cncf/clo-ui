@@ -1,4 +1,5 @@
-import { isNull, isUndefined } from 'lodash';
+import isNull from 'lodash/isNull';
+import isUndefined from 'lodash/isUndefined';
 import { KeyboardEvent, useRef, useState } from 'react';
 import React from 'react';
 import { FiPlus } from 'react-icons/fi';

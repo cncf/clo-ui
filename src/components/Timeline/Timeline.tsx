@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { format, parseISO } from 'date-fns';
-import { isUndefined, uniq } from 'lodash';
+import isUndefined from 'lodash/isUndefined';
+import uniq from 'lodash/uniq';
 import React, { Dispatch, Fragment, SetStateAction, useEffect, useState } from 'react';
 import { RiHistoryFill } from 'react-icons/ri';
 

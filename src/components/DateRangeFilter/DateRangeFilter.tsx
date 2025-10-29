@@ -1,5 +1,8 @@
 import { format } from 'date-fns';
-import { isEmpty, isEqual, isNil, omitBy } from 'lodash';
+import isEmpty from 'lodash/isEmpty';
+import isEqual from 'lodash/isEqual';
+import isNil from 'lodash/isNil';
+import omitBy from 'lodash/omitBy';
 import React, { ChangeEvent, useEffect, useId, useRef, useState } from 'react';
 
 import { useOutsideClick } from '../../hooks';

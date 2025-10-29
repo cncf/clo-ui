@@ -1,6 +1,6 @@
 import classnames from 'classnames';
-import { isString } from 'lodash';
 import isNumber from 'lodash/isNumber';
+import isString from 'lodash/isString';
 import React, { useEffect, useRef, useState } from 'react';
 import { FaCaretLeft, FaCaretRight } from 'react-icons/fa';
 

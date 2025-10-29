@@ -1,5 +1,5 @@
 import { endOfMonth, endOfYear, format, parseISO } from 'date-fns';
-import { groupBy } from 'lodash';
+import groupBy from 'lodash/groupBy';
 
 import { SortedDates } from '../components/Timeline/Timeline';
 

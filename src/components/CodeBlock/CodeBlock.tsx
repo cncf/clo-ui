@@ -1,4 +1,4 @@
-import { isUndefined } from 'lodash';
+import isUndefined from 'lodash/isUndefined';
 import React from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/cjs/default-highlight';
 import { docco } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
