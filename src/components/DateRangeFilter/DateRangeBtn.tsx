@@ -2,7 +2,7 @@ import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 
 import classNames from 'classnames';
-import moment from 'moment';
+import { format, parseISO } from 'date-fns';
 import React, { useRef, useState } from 'react';
 import { Calendar } from 'react-date-range';
 
@@ -29,7 +29,7 @@ export const DateRangeBtn = (props: IDateRangeBtnProps) => {
   useOutsideClick([ref], showCalendar, () => setShowCalendar(false));
 
   const handleChange = (date: Date) => {
-    props.onDateChange(moment(date).format('YYYY-MM-DD'), props.type);
+    props.onDateChange(format(date, 'yyyy-MM-dd'), props.type);
     setShowCalendar(false);
   };
 
@@ -41,7 +41,7 @@ export const DateRangeBtn = (props: IDateRangeBtnProps) => {
         onClick={() => setShowCalendar(!showCalendar)}
         aria-label={`Open calendar to choose date ${props.type}`}
       >
-        {moment(props.date).format('MMM D, YYYY')}
+        {format(parseISO(props.date), 'MMM d, yyyy')}
       </button>
 
       <div
@@ -55,9 +55,9 @@ export const DateRangeBtn = (props: IDateRangeBtnProps) => {
 
         <Calendar
           onChange={handleChange}
-          minDate={moment(props.min).toDate()}
-          maxDate={moment(props.max).toDate()}
-          date={moment(props.date).toDate()}
+          minDate={parseISO(props.min)}
+          maxDate={parseISO(props.max)}
+          date={parseISO(props.date)}
           className={styles.calendar}
         />
       </div>

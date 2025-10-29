@@ -1,5 +1,5 @@
+import { format } from 'date-fns';
 import { isEmpty, isEqual, isNil, omitBy } from 'lodash';
-import moment from 'moment';
 import React, { ChangeEvent, useEffect, useId, useRef, useState } from 'react';
 
 import { useOutsideClick } from '../../hooks';
@@ -18,7 +18,7 @@ export interface IDateRangeFilterProps {
 }
 
 export const DateRangeFilter = (props: IDateRangeFilterProps) => {
-  const END_DATE = moment().format('YYYY-MM-DD');
+  const END_DATE = format(new Date(), 'yyyy-MM-dd');
   const [dateFrom, setDateFrom] = useState<string>(props.initialDate);
   const [dateTo, setDateTo] = useState<string>(END_DATE);
   const ref = useRef<HTMLDivElement>(null);
