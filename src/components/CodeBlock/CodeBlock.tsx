@@ -44,12 +44,11 @@ const loadHighlighterBundle = () => {
       import('react-syntax-highlighter/dist/esm/languages/hljs/xml'),
       import('react-syntax-highlighter/dist/esm/styles/hljs/docco'),
       import('react-syntax-highlighter/dist/esm/styles/hljs/tomorrow-night'),
-    ]).then(([lightModule, markdownModule, asciidocModule, xmlModule, doccoModule, tomorrowNightModule]) => {
+    ]).then(([lightModule, markdownModule, asciidocModule, htmlModule, doccoModule, tomorrowNightModule]) => {
       const SyntaxHighlighter = lightModule.default;
       SyntaxHighlighter.registerLanguage('markdown', markdownModule.default);
       SyntaxHighlighter.registerLanguage('asciidoc', asciidocModule.default);
-      SyntaxHighlighter.registerLanguage('html', xmlModule.default);
-      SyntaxHighlighter.registerLanguage('xml', xmlModule.default);
+      SyntaxHighlighter.registerLanguage('html', htmlModule.default);
 
       return {
         component: SyntaxHighlighter,
