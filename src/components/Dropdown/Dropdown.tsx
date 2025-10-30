@@ -53,7 +53,25 @@ export const Dropdown: React.FC<IDropdownProps> = (props: IDropdownProps) => {
         })}
       >
         <div className={`dropdown-arrow ${styles.arrow}`} />
-        {React.cloneElement(props.children, { closeDropdown: closeDropdown, isVisibleDropdown: visibleDropdown })}
+        {React.isValidElement(props.children)
+          ? props.children.type === React.Fragment
+            ? (() => {
+                const fragment = props.children as React.ReactElement<{ children?: React.ReactNode }>;
+                return (
+                  <>
+                    {React.Children.map(fragment.props.children, (child) =>
+                      React.isValidElement(child)
+                        ? React.cloneElement(child as React.ReactElement<Record<string, unknown>>, {
+                            closeDropdown: closeDropdown,
+                            isVisibleDropdown: visibleDropdown,
+                          })
+                        : child
+                    )}
+                  </>
+                );
+              })()
+            : React.cloneElement(props.children, { closeDropdown: closeDropdown, isVisibleDropdown: visibleDropdown })
+          : props.children}
       </div>
     </div>
   );
