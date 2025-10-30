@@ -17,8 +17,7 @@ class BrowserDetect {
 
     const safariWindow = window as SafariWindow;
     const matchesDesktopCheck =
-      typeof safariWindow.safari !== 'undefined' &&
-      typeof safariWindow.safari.pushNotification !== 'undefined';
+      typeof safariWindow.safari !== 'undefined' && typeof safariWindow.safari.pushNotification !== 'undefined';
 
     this.safari = matchesRegex || matchesDesktopCheck;
   }
