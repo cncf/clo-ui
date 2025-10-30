@@ -1,34 +1,38 @@
-import { UAParser } from 'ua-parser-js';
-
-type BrowserInfo = {
-  browser?: {
-    name?: string;
-  };
-};
-
 class BrowserDetect {
-  private ua: BrowserInfo = {};
+  private safari = false;
 
   public init() {
     if (typeof navigator === 'undefined') {
-      this.ua = {};
+      this.safari = false;
       return;
     }
-    try {
-      const parser = new UAParser(navigator.userAgent);
-      this.ua = parser.getResult();
-    } catch {
-      this.ua = {};
+    const userAgent = navigator.userAgent || '';
+    const safariRegex = /^((?!chrome|crios|chromium|edg|edgios|opr|fxios|android).)*safari/i;
+    const matchesRegex = safariRegex.test(userAgent);
+
+    if (typeof window === 'undefined') {
+      this.safari = matchesRegex;
+      return;
     }
+
+    const safariWindow = window as SafariWindow;
+    const matchesDesktopCheck =
+      typeof safariWindow.safari !== 'undefined' &&
+      typeof safariWindow.safari.pushNotification !== 'undefined';
+
+    this.safari = matchesRegex || matchesDesktopCheck;
   }
 
   public isSafari(): boolean {
-    if (this.ua.browser && this.ua.browser.name && this.ua.browser.name.includes('Safari')) {
-      return true;
-    }
-    return false;
+    return this.safari;
   }
 }
+
+type SafariWindow = Window & {
+  safari?: {
+    pushNotification?: unknown;
+  };
+};
 
 const browserDetect = new BrowserDetect();
 browserDetect.init();
