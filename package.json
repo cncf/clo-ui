@@ -74,8 +74,7 @@
     "date-fns": "^2.30.0",
     "lodash": "^4.17.21",
     "react-date-range": "1.4.0",
-    "react-icons": "^5.3.0",
-    "react-syntax-highlighter": "^16.0.0"
+    "react-icons": "^5.3.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.38.0",
@@ -92,7 +91,6 @@
     "@types/react": "^19.2.2",
     "@types/react-date-range": "^1.4.9",
     "@types/react-dom": "^19.2.2",
-    "@types/react-syntax-highlighter": "^15.5.13",
     "autoprefixer": "^10.4.21",
     "eslint": "^9.38.0",
     "eslint-config-prettier": "^10.1.8",
@@ -122,7 +120,6 @@
   },
   "resolutions": {
     "@types/minimatch": "5.1.2",
-    "@types/react-syntax-highlighter/**/@types/react": "19.2.2",
     "@types/react-date-range/**/@types/react": "19.2.2"
   },
   "jest": {
@@ -135,8 +132,7 @@
     },
     "moduleNameMapper": {
       "\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-      "\\.(css|less)$": "identity-obj-proxy",
-      "^react-syntax-highlighter/dist/esm/(.*)$": "react-syntax-highlighter/dist/cjs/$1"
+      "\\.(css|less)$": "identity-obj-proxy"
     },
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
     "moduleFileExtensions": [
