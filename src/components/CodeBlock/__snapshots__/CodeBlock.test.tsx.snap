@@ -7,7 +7,8 @@ exports[`CodeBlock creates snapshot 1`] = `
     data-testid="code"
   >
     <pre
-      style="display: block; overflow-x: auto; padding: 1rem; color: var(--color-font); background-color: var(--bg-code); margin-bottom: 0px; width: calc(100% + (-1 * (32px + 1rem)));"
+      class="mb-0 flex-grow-1"
+      style="display: block; overflow-x: auto; padding: 1rem; color: var(--color-font); background-color: var(--bg-code); margin-bottom: 0px; flex: 1 1 auto; white-space: pre-wrap; word-break: break-word; overscroll-behavior: contain; width: calc(100% + (-1 * (32px + 1rem)));"
     >
       <code
         class="language-markdown"
