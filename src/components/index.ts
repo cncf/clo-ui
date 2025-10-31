@@ -6,8 +6,6 @@ export { Card, ICardProps } from './Card';
 export { CategoryBadge, ICategoryBadgeProps } from './CategoryBadge';
 export { CheckBox, ICheckboxProps } from './Checkbox';
 export { CheckSet, CheckSetBadge, ICheckSetBadgeProps } from './CheckSetBadge';
-export { DateRangeBtn, IDateRangeBtnProps } from './DateRangeFilter';
-export { DateRangeFilter, DateRangeOpts, IDateRangeFilterProps } from './DateRangeFilter';
 export { DotsLoading, IDotsLoadingProps } from './DotsLoading';
 export { Dropdown, IDropdownProps } from './Dropdown';
 export { DropdownOnHover, IDropdownOnHoverProps } from './DropdownOnHover';
