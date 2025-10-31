@@ -1,6 +1,7 @@
 import classNames from 'classnames';
-import { isUndefined, uniq } from 'lodash';
-import moment from 'moment';
+import { format, parseISO } from 'date-fns';
+import isUndefined from 'lodash/isUndefined';
+import uniq from 'lodash/uniq';
 import React, { Dispatch, Fragment, SetStateAction, useEffect, useState } from 'react';
 import { RiHistoryFill } from 'react-icons/ri';
 
@@ -24,7 +25,7 @@ export interface ITimelineProps {
 const MIN_NUMBER_SNAPSHOTS = 3;
 
 export const Timeline = (props: ITimelineProps) => {
-  const [today] = useState<string>(moment().format('YYYY-MM-DD'));
+  const [today] = useState<string>(format(new Date(), 'yyyy-MM-dd'));
   const [availablaSnapshots, setAvailablaSnapshots] = useState<string[]>([]);
   const [dates, setDates] = useState<SortedDates | undefined>();
 
@@ -61,7 +62,7 @@ export const Timeline = (props: ITimelineProps) => {
                         return (
                           <Fragment key={`date_${year}_${month}`}>
                             <div className={`position-relative mt-3 mb-2 fw-bold text-uppercase ${styles.month}`}>
-                              {moment.monthsShort(parseInt(month) - 1)}
+                              {format(new Date(2000, Number(month) - 1, 1), 'MMM')}
                             </div>
                             <div className="d-flex flex-column align-items-center">
                               {dates[year][month]
@@ -86,9 +87,9 @@ export const Timeline = (props: ITimelineProps) => {
                                         props.setActiveDate(!isToday ? time : undefined);
                                       }}
                                       disabled={isActive}
-                                      aria-label={`Opens snapshot: ${moment(time, 'YYYY-MM-DD').format("Do MMM 'YY")}`}
+                                      aria-label={`Opens snapshot: ${format(parseISO(time), "do MMM ''yy")}`}
                                     >
-                                      <div className={styles.content}>{moment(time, 'YYYY-MM-DD').format('D')}</div>
+                                      <div className={styles.content}>{format(parseISO(time), 'd')}</div>
                                     </button>
                                   );
                                 })}

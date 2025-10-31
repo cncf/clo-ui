@@ -1,4 +1,4 @@
-import { isNull } from 'lodash';
+import isNull from 'lodash/isNull';
 import { Dispatch, useCallback, useEffect, useState } from 'react';
 
 import { detectActiveThemeMode } from '../utils/detectActiveThemeMode';

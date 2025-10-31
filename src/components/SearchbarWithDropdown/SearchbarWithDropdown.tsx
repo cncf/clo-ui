@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { isNull } from 'lodash';
+import isNull from 'lodash/isNull';
 import React, { ChangeEvent, KeyboardEvent, useEffect, useRef, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import { IoCloseSharp } from 'react-icons/io5';

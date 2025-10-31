@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import { isUndefined } from 'lodash';
+import isUndefined from 'lodash/isUndefined';
 import React, { MouseEvent as ReactMouseEvent, useEffect, useState } from 'react';
 import { FiCopy } from 'react-icons/fi';
 

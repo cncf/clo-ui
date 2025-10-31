@@ -1,4 +1,4 @@
-import { isUndefined } from 'lodash';
+import isUndefined from 'lodash/isUndefined';
 
 export const getCategoryColor = (value?: number): string => {
   if (isUndefined(value)) return '';

@@ -1,4 +1,5 @@
-import { isUndefined, sampleSize } from 'lodash';
+import isUndefined from 'lodash/isUndefined';
+import sampleSize from 'lodash/sampleSize';
 import React, { Fragment } from 'react';
 
 export interface ISampleQueriesProps {
