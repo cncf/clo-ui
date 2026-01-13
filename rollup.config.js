@@ -63,10 +63,7 @@ const inputEntries = {
   ...getFlatEntries('utils', 'utils'),
 };
 
-const externalDeps = [
-  ...Object.keys(pkg.peerDependencies || {}),
-  ...Object.keys(pkg.dependencies || {}),
-];
+const externalDeps = [...Object.keys(pkg.peerDependencies || {}), ...Object.keys(pkg.dependencies || {})];
 
 const isExternal = (id) => externalDeps.some((dep) => id === dep || id.startsWith(`${dep}/`));
 
@@ -106,7 +103,14 @@ const conf = {
           rootDir: 'src',
           noEmit: false,
         },
-        exclude: ['**/*.test.ts', '**/*.test.tsx', '**/__tests__/**', '**/__mocks__/**'],
+        exclude: [
+          '**/*.test.ts',
+          '**/*.test.tsx',
+          '**/*.stories.ts',
+          '**/*.stories.tsx',
+          '**/__tests__/**',
+          '**/__mocks__/**',
+        ],
       },
       clean: true,
     }),
