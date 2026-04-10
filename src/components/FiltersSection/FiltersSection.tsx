@@ -50,7 +50,7 @@ const SEARCH_DELAY = 3 * 100; // 300ms
 export const FiltersSection = forwardRef<RefFiltersSection, IFiltersSectionProps>(
   (props: IFiltersSectionProps, ref: Ref<RefFiltersSection>) => {
     const [value, setValue] = useState<string>('');
-    const [searchTimeout, setSearchTimeout] = useState<NodeJS.Timeout | null>(null);
+    const [searchTimeout, setSearchTimeout] = useState<ReturnType<typeof setTimeout> | null>(null);
 
     const sortBySelected = (options: FilterOption[]): FilterOption[] => {
       const selected = options.filter((option: FilterOption) =>

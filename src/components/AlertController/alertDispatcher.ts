@@ -11,7 +11,7 @@ interface AlertUpdatesHandler {
 class AlertDispatcher {
   private updatesHandler?: AlertUpdatesHandler;
   private visibleAlert: Alert | null = null;
-  private timeout?: NodeJS.Timeout;
+  private timeout?: ReturnType<typeof setTimeout>;
 
   public subscribe(updatesHandler: AlertUpdatesHandler) {
     this.updatesHandler = updatesHandler;

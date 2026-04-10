@@ -1,7 +1,6 @@
 import isNull from 'lodash/isNull';
 import isUndefined from 'lodash/isUndefined';
-import { KeyboardEvent, useRef, useState } from 'react';
-import React from 'react';
+import React, { KeyboardEvent, useRef, useState } from 'react';
 import { FiPlus } from 'react-icons/fi';
 import { GoCheck } from 'react-icons/go';
 import { IoMdCloseCircleOutline } from 'react-icons/io';

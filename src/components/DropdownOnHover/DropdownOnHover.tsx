@@ -27,7 +27,7 @@ export const DropdownOnHover = (props: IDropdownOnHoverProps) => {
   const arialabel = props.ariaLabel || 'Toggle dropdown';
 
   useEffect(() => {
-    let timeout: NodeJS.Timeout;
+    let timeout: ReturnType<typeof setTimeout>;
     if (!openStatus && (onLinkHover || onDropdownHover)) {
       timeout = setTimeout(() => {
         setOpenStatus(true);
