@@ -57,7 +57,7 @@ export const ElementWithTooltip = (props: IElementWithTooltipProps) => {
       }
     };
 
-    let timeout: NodeJS.Timeout;
+    let timeout: ReturnType<typeof setTimeout>;
     if (!visibleTooltipStatus && onLabelHover) {
       calculateTooltipPosition();
       timeout = setTimeout(() => {

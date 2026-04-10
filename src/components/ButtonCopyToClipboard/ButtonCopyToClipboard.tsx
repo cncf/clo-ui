@@ -53,7 +53,7 @@ export const ButtonCopyToClipboard = (props: IButtonCopyToClipboardProps) => {
   }
 
   useEffect(() => {
-    let timeout: NodeJS.Timeout;
+    let timeout: ReturnType<typeof setTimeout>;
     if (copyStatus) {
       // Hide tooltip after 2s
       timeout = setTimeout(() => setCopyStatus(false), 2 * 1000);

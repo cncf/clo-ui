@@ -45,7 +45,7 @@ export const SearchbarWithDropdown = (props: ISearchbarWithDropdownProps) => {
   const [totalProjectsNumber, setTotalProjectsNumber] = useState<number | null>(null);
   const [visibleDropdown, setVisibleDropdown] = useState<boolean>(false);
   const [highlightedItem, setHighlightedItem] = useState<number | null>(null);
-  const [dropdownTimeout, setDropdownTimeout] = useState<NodeJS.Timeout | null>(null);
+  const [dropdownTimeout, setDropdownTimeout] = useState<ReturnType<typeof setTimeout> | null>(null);
   const point = useBreakpointDetect();
 
   useOutsideClick([dropdownRef], visibleDropdown, () => {
