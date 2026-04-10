@@ -6,7 +6,6 @@ const js = require('@eslint/js');
 const simpleImportSort = require('eslint-plugin-simple-import-sort');
 const tseslint = require('typescript-eslint');
 const tsRecommended = tseslint.plugin.configs['flat/recommended'];
-const reactHooks = require('eslint-plugin-react-hooks');
 
 module.exports = [
   js.configs.recommended,
@@ -17,7 +16,6 @@ module.exports = [
     },
     plugins: {
       '@typescript-eslint': tseslint.plugin,
-      'react-hooks': reactHooks,
       'simple-import-sort': simpleImportSort,
     },
     rules: {
